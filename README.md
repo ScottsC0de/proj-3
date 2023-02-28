@@ -2,7 +2,7 @@
 Coming soon...
 
 ## Developer Branch Instructions
-```js
+```
 1. (on your local main branch) git pull origin main
 2. git checkout -b feature/myfeature
 3. git status
