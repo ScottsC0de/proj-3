@@ -1,6 +1,5 @@
 {
   "name": "proj-3",
-<<<<<<< HEAD
   "version": "0.1.0",
   "private": true,
   "main": "App.js",
@@ -18,11 +17,6 @@
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
-=======
-  "version": "1.0.0",
-  "description": "",
-  "main": "server/server.js",
->>>>>>> main
   "scripts": {
     "start": "node server/server.js --ignore client",
     "develop": "concurrently --kill-others-on-fail \"cd server && npm run watch\" \"cd client && npm start\"",
