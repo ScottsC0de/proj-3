@@ -1,36 +1,15 @@
-import React, { useState, useEffect } from "react";
-import UploadWidget from "./components/UploadWidget";
-function FlickrPhotos() {
-  const [photos, setPhotos] = useState([]);
+import React from 'react';
+import './App.css';
+import FlickrPhotos from "./components/flickr";
+import Navbar from './components/navbar';
 
-  useEffect(() => {
-    async function fetchPhotos() {
-      const apiKey = "8cc95ac0f29514284d94232a32a7c4c3";
-      const Tags = "waterfalls";
-      const url = `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${Tags}&format=json&nojsoncallback=1`;
-      const response = await fetch(url);
-      const data = await response.json();
-      setPhotos(data.photos.photo);
-      console.log(data.photos.photo);
-    }
-    fetchPhotos();
-  }, []);
-
+function App() {
   return (
-    <div>
-      <UploadWidget />
-      {photos.map((photo) => (
-        <img
-          key={photo.id}
-          src={`https://live.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`}
-          alt={photo.title}
-          thumbnailheight={350}
-          thumbnailwidth={350}
-          caption={photo.title}
-        />
-      ))}
-    </div>
-  );
+    <>
+    <Navbar />
+    <FlickrPhotos />
+    </>
+  )
 }
 
-export default FlickrPhotos;
+export default App
