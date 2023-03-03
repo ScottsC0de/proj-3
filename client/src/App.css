@@ -3,7 +3,8 @@
 }
 html, body {
   height: 100%;
-
+  font-family: 'Amatic SC', sans-serif;
+  font-size: 1.25em;
 }
 #root {
   width: 100vw;
@@ -60,4 +61,22 @@ nav input {
   margin: auto;
   height: 30px;
   flex-shrink: 1;
+}
+.card {
+  outline: 1px gray solid;
+  padding: 15px;
+  max-width: 600px;
+  width: 100%;
+  margin: auto;
+  border-radius: 5px;
+}
+.card p, .card h3 {
+  margin: 0 auto;
+}
+.card img {
+  /* display: block; */
+  /* width: 300px;
+  height: 200px; */
+  max-width: 100%;
+  background-color: gray;
 }
