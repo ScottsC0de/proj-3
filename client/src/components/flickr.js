@@ -7,7 +7,7 @@ function FlickrPhotos() {
   
   useEffect(() => {
     async function fetchPhotos() {
-      const apiKey = "8cc95ac0f29514284d94232a32a7c4c3";
+      const apiKey = process.env.REACT_APP_API_KEY;
       let Tags = 'nature';
       const url = `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${Tags}&format=json&nojsoncallback=1`;
       const response = await fetch(url);
