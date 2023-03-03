@@ -28,7 +28,7 @@ function Gallery() {
                 <div className="gallery">
                     <CloudinaryContext cloudName="cloud_name">
                         {
-                            this.state.gallery.map(data => {
+                            gallery.map(data => {
                                 return (
                                     <div className="responsive" key={data.public_id}>
                                         <div className="img">
