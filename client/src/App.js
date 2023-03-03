@@ -14,6 +14,7 @@ function App() {
     <PicturePost />
     <FlickrPhotos />
     <CloudinaryContext>
+    <Gallery />
     <Image>
         <Transformation />
         <Transformation />
