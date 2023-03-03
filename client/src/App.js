@@ -4,7 +4,7 @@ import FlickrPhotos from "./components/flickr";
 import Navbar from './components/navbar';
 import Gallery from './components/Gallery';
 import { CloudinaryContext, Transformation, Image } from 'cloudinary-react';
-
+import axios from 'axios';
 import PicturePost from './components/picturePost';
 
 function App() {
