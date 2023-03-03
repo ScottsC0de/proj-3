@@ -2,7 +2,7 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import UploadWidget from "./UploadWidget";
 
-function FlickrPhotos(term) {
+function FlickrPhotos() {
   const [photos, setPhotos] = useState([]);
   
   useEffect(() => {
