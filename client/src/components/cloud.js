@@ -1,13 +1,13 @@
 import React from "react";
-import { Cloudinary } from "@cloudinary/url-gen";
 import { AdvancedImage } from "@cloudinary/react";
+import { Cloudinary } from "@cloudinary/url-gen";
 import { fill } from "@cloudinary/url-gen/actions/resize";
 
-const cloud = () => {
+const Cloud = () => {
   // Create a Cloudinary instance and set your cloud name.
   const cld = new Cloudinary({
     cloud: {
-      cloudName: "demo",
+      cloudName: "dtsv4ybqe",
     },
   });
 
@@ -24,4 +24,4 @@ const cloud = () => {
     </div>
   );
 };
-export default cloud;
+export default Cloud;
