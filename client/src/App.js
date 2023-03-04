@@ -8,7 +8,7 @@ import Gallery from './components/Gallery';
 // import SearchImages from "./pages/SearchImages";
 // import SavedImages from "./pages/SavedImages";
 
-import Cloud from './components/Cloud';
+// import Cloud from './components/cloud';
 
 // import { CloudinaryContext, Transformation, Image } from 'cloudinary-react';
 // import axios from 'axios';
@@ -45,9 +45,8 @@ function App() {
       <>
     <AppNavbar />
     <PicturePost />
-
     <FlickrPhotos />
-    
+    {/* <Cloud /> */}
     <Gallery />
     <Routes>
             {/* <Route path="/" element={<SearchImages />} /> */}
@@ -60,12 +59,6 @@ function App() {
         </>
       </Router>
     </ApolloProvider>
-
-    <Cloud />
-  
-    
-    </>
-
   )
 }
 
