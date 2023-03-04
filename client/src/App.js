@@ -4,8 +4,12 @@ import './App.css';
 import FlickrPhotos from "./components/flickr";
 import AppNavbar from './components/navbar';
 import Gallery from './components/Gallery';
+
 // import SearchImages from "./pages/SearchImages";
 // import SavedImages from "./pages/SavedImages";
+
+import Cloud from './components/Cloud';
+
 // import { CloudinaryContext, Transformation, Image } from 'cloudinary-react';
 // import axios from 'axios';
 import PicturePost from './components/picturePost';
@@ -41,6 +45,7 @@ function App() {
       <>
     <AppNavbar />
     <PicturePost />
+
     <FlickrPhotos />
     
     <Gallery />
@@ -55,6 +60,12 @@ function App() {
         </>
       </Router>
     </ApolloProvider>
+
+    <Cloud />
+  
+    
+    </>
+
   )
 }
 
