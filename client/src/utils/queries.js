@@ -6,6 +6,13 @@ export const GET_ME = gql`
       _id
       username
       email
+      imageCount
+      savedImages {
+        imageId
+        title
+        caption
+        src
+      }
     }
   }
 `;
