@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './App.css';
 import FlickrPhotos from "./components/flickr";
 import AppNavbar from './components/navbar';
-import Gallery from './components/Gallery';
+// import Gallery from './components/Gallery';
 
 // import SearchImages from "./pages/SearchImages";
 // import SavedImages from "./pages/SavedImages";
@@ -47,7 +47,7 @@ function App() {
     <PicturePost />
     <FlickrPhotos />
     {/* <Cloud /> */}
-    <Gallery />
+    {/* <Gallery /> */}
     <Routes>
             {/* <Route path="/" element={<SearchImages />} /> */}
             {/* <Route path="/saved" element={<SavedImages />} /> */}
