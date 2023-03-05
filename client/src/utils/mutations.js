@@ -28,4 +28,21 @@ export const ADD_USER = gql`
   }
 `;
 
+export const SAVE_IMAGE = gql`
+  mutation saveImage($input: ImageInput) {
+    saveImage(input: $input) {
+      _id
+      username
+      imageCount
+      savedImages {
+        imageId
+        title
+        caption
+        src
+      }
+    }
+  }
+`;
+
+
 
