@@ -71,7 +71,7 @@ nav input {
   border-radius: 5px;
 }
 .card p, .card h3 {
-  margin: 0 auto;
+  margin: 1rem auto;
 }
 .card img {
   /* display: block; */
