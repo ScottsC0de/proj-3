@@ -1,8 +1,7 @@
 const User = require('./User');
-const Photo = require('./Photo');
 
 // const Thought = require('./Thought');
 // const Reaction = require('./Reaction');
 
 // module.exports = { User, Thought, Reaction };
-module.exports = { User, Photo};
+module.exports = { User};
