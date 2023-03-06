@@ -122,7 +122,7 @@ const SearchedImages = () => {
           </Form>
         </Container>
       </Jumbotron>
-      <Container>
+      {/* <Container> */}
         <h2>
           {searchedImages.length
             ? `Viewing ${searchedImages.length} results for ${prevSearchInput}:`
@@ -155,7 +155,7 @@ const SearchedImages = () => {
             );
 })}
         </div>
-        </Container>
+        {/* </Container> */}
     </>
   );
 };

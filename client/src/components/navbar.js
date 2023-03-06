@@ -19,25 +19,13 @@ const AppNavbar = () => {
     <>
       <Navbar bg='dark' variant='dark' expand='lg'>
         <Container fluid>
-          <Navbar.Brand as={Link} to='/'>
-            Search for Inspiration
-          </Navbar.Brand>
           <Navbar.Toggle aria-controls='navbar' />
           <Navbar.Collapse id='navbar'>
             <Nav className='ml-auto'>
               <Nav.Link as={Link} to='/'>
               Search for Inspiration
               </Nav.Link>
-              <form
-        onSubmit={handleSearchSubmit}>
-        <input
-        name='search'
-        type='text'
-        value={searchText}
-        onChange={(e) => setSearchText(e.target.value)}
-        placeholder={'Search'}
-        />
-      </form>
+
 
               {/* if user is logged in show saved images and logout */}
               {Auth.loggedIn() ? (
