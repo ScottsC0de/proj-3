@@ -5,6 +5,8 @@ const typeDefs = gql`
     _id: ID!
     username: String!
     email: String!
+    imageCount: Int
+    savedImages: [Image]
   }
   type Auth {
     token: ID!
