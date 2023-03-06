@@ -1,6 +1,6 @@
 export const getSavedImageIds = () => {
-    const savedImageIds = localStorage.getItem('images')
-      ? JSON.parse(localStorage.getItem('images'))
+    const savedImageIds = localStorage.getItem('saved_images')
+      ? JSON.parse(localStorage.getItem('saved_images'))
       : [];
   
     return savedImageIds;
