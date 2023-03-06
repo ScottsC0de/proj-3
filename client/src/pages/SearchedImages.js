@@ -14,6 +14,7 @@ const SearchedImages = () => {
   const [searchedImages, setSearchedImages] = useState([]);
   // create state for holding our search field data
   const [searchInput, setSearchInput] = useState('');
+  const [prevSearchInput, setPrevSearchInput] = useState('');
 
   // create state to hold saved imageId values
   const [savedImageIds, setSavedImageIds] = useState(getSavedImageIds());
@@ -47,16 +48,18 @@ const SearchedImages = () => {
         throw new Error('something went wrong!');
       }
 
-      const { items } = await response.json();
+      const { photos: {photo} } = await response.json();
 
-      const imageData = items.map((photo) => ({
+      const imageData = photo.map((photo) => ({
         imageId: photo.id,
         title: photo.title,
         caption: photo.title,
-        src: photo.src,
+        server: photo.server,
+        secret: photo.secret
       }));
 
       setSearchedImages(imageData);
+      setPrevSearchInput(searchInput);
       setSearchInput('');
     } catch (err) {
       console.error(err);
@@ -101,7 +104,7 @@ const SearchedImages = () => {
                   onChange={(e) => setSearchInput(e.target.value)}
                   type='text'
                   size='lg'
-                  placeholder='Search for a image'
+                  placeholder='Search for an image'
                 />
               </Col>
               <Col xs={12} md={4}>
@@ -112,25 +115,24 @@ const SearchedImages = () => {
             </Form.Row>
           </Form>
         </Container>
-      </Jumbotron>SearchImages
+      </Jumbotron>
 
-      <Container>
         <h2>
           {searchedImages.length
-            ? `Viewing ${searchedImages.length} results:`
+            ? `Viewing ${searchedImages.length} results for ${prevSearchInput}:`
             : 'Search for a image to begin'}
         </h2>
 
         <div className="masonry-with-columns">
           {searchedImages.map((photo) => (
-            <div>
+            <div className='card'>
             <img
-              key={photo.id}
-              src={`https://live.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`}
-              alt={photo.title}
+              key={`${photo.id}`}
+              src={`https://live.staticflickr.com/${photo.server}/${photo.imageId}_${photo.secret}.jpg`}
+              alt={`${photo.title}`}
               thumbnailheight={350}
               thumbnailwidth={350}
-              caption={photo.title}
+              caption={`${photo.title}`}
             />
                     {
               Auth.loggedIn() && (
@@ -147,7 +149,6 @@ const SearchedImages = () => {
             </div>
           ))}
         </div>
-      </Container>
     </>
   );
 };
