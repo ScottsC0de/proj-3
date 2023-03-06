@@ -42,5 +42,32 @@ module.exports = {
     const token = signToken(user);
     res.json({ token, user });
   },
-
+// save a image to a user's `savedImages` field by adding it to the set (to prevent duplicates)
+  // user comes from `req.user` created in the auth middleware function
+  async saveImage({ user, body }, res) {
+    console.log(user);
+    try {
+      const updatedUser = await User.findOneAndUpdate(
+        { _id: user._id },
+        { $addToSet: { savedImages: body } },
+        { new: true, runValidators: true }
+      );
+      return res.json(updatedUser);
+    } catch (err) {
+      console.log(err);
+      return res.status(400).json(err);
+    }
+  },
+  // remove a image from `savedImages`
+  async deleteImage({ user, params }, res) {
+    const updatedUser = await User.findOneAndUpdate(
+      { _id: user._id },
+      { $pull: { savedImages: { imageId: params.imageId } } },
+      { new: true }
+    );
+    if (!updatedUser) {
+      return res.status(404).json({ message: "Couldn't find user with this id!" });
+    }
+    return res.json(updatedUser);
+  },
 };

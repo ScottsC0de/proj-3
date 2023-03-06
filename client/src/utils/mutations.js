@@ -9,6 +9,13 @@ export const LOGIN_USER = gql`
         _id
         username
         email
+        imageCount
+      savedImages {
+        imageId
+        title
+        caption
+        src
+      }
       }
     }
   }
@@ -23,6 +30,13 @@ export const ADD_USER = gql`
         _id
         username
         email
+        imageCount
+      savedImages {
+        imageId
+        title
+        caption
+        src
+      }
       }
     }
   }
@@ -44,5 +58,20 @@ export const SAVE_IMAGE = gql`
   }
 `;
 
+export const REMOVE_IMAGE = gql`
+  mutation removeImage($imageId: ID!) {
+    removeImage(imageId: $imageId) {
+      _id
+      username
+      imageCount
+      savedImages {
+        imageId
+        title
+        caption
+        src
+      }
+    }
+  }
+`;
 
 

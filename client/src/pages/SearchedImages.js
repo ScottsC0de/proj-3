@@ -69,7 +69,7 @@ const SearchedImages = () => {
   // create function to handle saving a image to our database
   const handleSaveImage = async (imageId) => {
     // find the image in `searchedImages` state by the matching id
-    const imageToSave = searchedImages.find((image) => image.imageId === imageId);
+    const imageToSave = searchedImages.find((photo) => photo.imageId === imageId);
 
     // get token
     const token = Auth.loggedIn() ? Auth.getToken() : null;
@@ -125,17 +125,16 @@ const SearchedImages = () => {
 
         <div className="masonry-with-columns">
           {searchedImages.map((photo) => (
-            <div className='card'>
+            <div className='card' key={photo.imageId}>
             <img
-              key={`${photo.id}`}
+              key={`${photo.imageId}`}
               src={`https://live.staticflickr.com/${photo.server}/${photo.imageId}_${photo.secret}.jpg`}
               alt={`${photo.title}`}
               thumbnailheight={350}
               thumbnailwidth={350}
               caption={`${photo.title}`}
             />
-                    {
-              Auth.loggedIn() && (
+                {Auth.loggedIn() && (
                 <Button
                   disabled={savedImageIds?.some((savedImageId) => savedImageId === photo.imageId)}
                   className='btn-block btn-info'
@@ -144,9 +143,8 @@ const SearchedImages = () => {
                     ? 'This image has already been saved!'
                     : 'Save this Image!'}
                 </Button>
-              )
-            }
-            </div>
+              )}
+                </div>
           ))}
         </div>
     </>
