@@ -48,6 +48,7 @@ html, body {
   align-items: center;
   padding: 15px;
   justify-content: space-between;
+  z-index: 100;
 }
 nav a {
   color: white;
@@ -69,14 +70,12 @@ nav input {
   width: 100%;
   margin: auto;
   border-radius: 5px;
+  -webkit-column-break-inside:avoid;
 }
 .card p, .card h3 {
   margin: 1rem auto;
 }
 .card img {
-  /* display: block; */
-  /* width: 300px;
-  height: 200px; */
   max-width: 100%;
   background-color: gray;
 }
