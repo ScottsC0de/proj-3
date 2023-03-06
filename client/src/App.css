@@ -48,6 +48,7 @@ html, body {
   align-items: center;
   padding: 15px;
   justify-content: space-between;
+  z-index: 100;
 }
 nav a {
   color: white;
@@ -69,6 +70,7 @@ nav input {
   width: 100%;
   margin: auto;
   border-radius: 5px;
+  display: block;
 }
 .card p, .card h3 {
   margin: 1rem auto;
