@@ -46,16 +46,17 @@ const resolvers = {
           { $push: { ...savedImages}},
           { new: true} 
         );
+        console.log(updatedUser);
         return updatedUser;
       }
       throw new AuthenticationError('You need to be logged in!');
     },
-    removeImage: async (parent, { imageId }, context) => {
+    removeImage: async (parent, { imageSrc }, context) => {
       console.log("REMOVING IMAGE")
       if (context.user) {
         const updatedUser = await User.findByIdAndUpdate(
           { _id: context.user._id },
-          { $pull: { savedImages: { imageId }}},
+          { $pull: { savedImages: { imageSrc }}},
           { new: true }
         );
         return updatedUser;

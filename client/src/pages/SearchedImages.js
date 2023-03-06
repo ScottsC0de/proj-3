@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import { Jumbotron, Container, Col, Form, Button, Card, CardColumns } from 'react-bootstrap';
-import { saveImageIds, getSavedImageIds } from '../utils/localStorage';
+import { saveImageSrcs, getSavedImageSrcs } from '../utils/localStorage';
 import { useMutation } from "@apollo/react-hooks";
 import { SAVE_IMAGE } from "../utils/mutations";
 import Auth from '../utils/auth';
@@ -17,14 +17,14 @@ const SearchedImages = () => {
   const [prevSearchInput, setPrevSearchInput] = useState('');
 
   // create state to hold saved imageId values
-  const [savedImageIds, setSavedImageIds] = useState(getSavedImageIds());
+  const [savedImageSrcs, setSavedImageSrcs] = useState(getSavedImageSrcs());
 
   // define the save image function from the mutation
   const [saveImage, { error }] = useMutation(SAVE_IMAGE);
   // set up useEffect hook to save `savedImageIds` list to localStorage on component unmount
   // learn more here: https://reactjs.org/docs/hooks-effect.html#effects-with-cleanup
   useEffect(() => {
-    return () => saveImageIds(savedImageIds);
+    return () => saveImageSrcs(savedImageSrcs);
   });
 
 
@@ -56,7 +56,8 @@ const SearchedImages = () => {
         title: photo.title,
         caption: photo.title,
         server: photo.server,
-        secret: photo.secret
+        secret: photo.secret,
+        imageSrc: `https://live.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`
       }));
 
       setSearchedImages(imageData);
@@ -68,12 +69,12 @@ const SearchedImages = () => {
   };
 
   // create function to handle saving a image to our database
-  const handleSaveImage = async (imageId) => {
+  const handleSaveImage = async (imageSrc) => {
 
     console.log(searchedImages)
-    console.log(imageId)
+    console.log(imageSrc)
     // find the image in `searchedImages` state by the matching id
-    const imageToSave = searchedImages.find((photo) => photo.imageId === imageId);
+    const imageToSave = searchedImages.find((photo) => photo.imageSrc === imageSrc);
     console.log(imageToSave)
     // get token
     const token = Auth.loggedIn() ? Auth.getToken() : null;
@@ -86,11 +87,11 @@ const SearchedImages = () => {
       const { data } = await saveImage({
         variables: { ...imageToSave },
       });
-      console.log("REICEIVED DATA")
+      console.log("RECEIVED DATA")
       console.log(data)
-      console.log(savedImageIds);
+      console.log(savedImageSrcs);
       // if image successfully saves to user's account, save image id to state
-      setSavedImageIds([...savedImageIds, imageToSave.imageId]);
+      setSavedImageSrcs([...savedImageSrcs, imageToSave.imageSrc]);
     } catch (err) {
       console.error(err);
     }
@@ -122,11 +123,11 @@ const SearchedImages = () => {
           </Form>
         </Container>
       </Jumbotron>
-      {/* <Container> */}
+      <Container>
         <h2>
           {searchedImages.length
             ? `Viewing ${searchedImages.length} results for ${prevSearchInput}:`
-            : 'Search for a image to begin'}
+            : ''}
         </h2>
 
         <div className="masonry-with-columns">
@@ -141,12 +142,13 @@ const SearchedImages = () => {
               thumbnailwidth={350}
               caption={`${photo.title}`}
             />
+            {<h4>{photo.src}</h4>}
                 {Auth.loggedIn() && (
                 <Button
-                  disabled={savedImageIds?.some((savedImageId) => savedImageId === photo.imageId)}
+                  disabled={savedImageSrcs?.some((savedImageSrc) => savedImageSrc === photo.imageSrc)}
                   className='btn-block btn-info'
-                  onClick={() => handleSaveImage(photo.imageId)}>
-                  {savedImageIds?.some((savedImageId) => savedImageId === photo.imageId)
+                  onClick={() => handleSaveImage(photo.imageSrc)}>
+                  {savedImageSrcs?.some((savedImageSrc) => savedImageSrc === photo.imageSrc)
                     ? 'This image has already been saved!'
                     : 'Save this Image!'}
                 </Button>
@@ -155,7 +157,7 @@ const SearchedImages = () => {
             );
 })}
         </div>
-        {/* </Container> */}
+        </Container>
     </>
   );
 };
