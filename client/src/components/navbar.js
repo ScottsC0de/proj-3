@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, Route } from 'react-router-dom';
 import { Navbar, Nav, Container, Modal, Tab } from 'react-bootstrap';
 import SignUpForm from './SignupForm';
 import LoginForm from './LoginForm';
@@ -10,6 +10,7 @@ const AppNavbar = () => {
   // set modal display state
   const [showModal, setShowModal] = useState(false);
   const [searchText, setSearchText] = useState('');
+  const location = useLocation();
   const handleSearchSubmit = (searchText) => {
 
   }
@@ -22,17 +23,17 @@ const AppNavbar = () => {
           <Navbar.Toggle aria-controls='navbar' />
           <Navbar.Collapse id='navbar'>
             <Nav className='ml-auto'>
-              <Nav.Link as={Link} to='/'>
-              Search for Inspiration
-              </Nav.Link>
+            {location.pathname !== "/" ? <Nav.Link as={Link} to='/'>
+              Search for Inspiration</Nav.Link> : ''}
 
 
               {/* if user is logged in show saved images and logout */}
               {Auth.loggedIn() ? (
                 <>
+                {location.pathname !== "/saved" ?
                   <Nav.Link as={Link} to='/saved'>
                     See Your Inspiration
-                  </Nav.Link>
+                  </Nav.Link> : ''}
                   <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
                 </>
               ) : (

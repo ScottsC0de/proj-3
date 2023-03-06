@@ -1,30 +1,30 @@
-export const getSavedImageIds = () => {
-    const savedImageIds = localStorage.getItem('saved_images')
+export const getSavedImageSrcs = () => {
+    const savedImageSrcs = localStorage.getItem('saved_images')
       ? JSON.parse(localStorage.getItem('saved_images'))
       : [];
   
-    return savedImageIds;
+    return savedImageSrcs;
   };
   
-  export const saveImageIds = (imageIdArr) => {
-    if (imageIdArr.length) {
-      localStorage.setItem('saved_images', JSON.stringify(imageIdArr));
+  export const saveImageSrcs = (imageSrcArr) => {
+    if (imageSrcArr.length) {
+      localStorage.setItem('saved_images', JSON.stringify(imageSrcArr));
     } else {
       localStorage.removeItem('saved_images');
     }
   };
   
-  export const removeImageId = (imageId) => {
-    const savedImageIds = localStorage.getItem('saved_images')
+  export const removeImageSrc = (imageSrc) => {
+    const savedImageSrcs = localStorage.getItem('saved_images')
       ? JSON.parse(localStorage.getItem('saved_images'))
       : null;
   
-    if (!savedImageIds) {
+    if (!savedImageSrcs) {
       return false;
     }
   
-    const updatedSavedImageIds = savedImageIds?.filter((savedImageId) => savedImageId !== imageId);
-    localStorage.setItem('saved_images', JSON.stringify(updatedSavedImageIds));
+    const updatedSavedImageSrcs = savedImageSrcs?.filter((savedImageSrc) => savedImageSrc !== imageSrc);
+    localStorage.setItem('saved_images', JSON.stringify(updatedSavedImageSrcs));
   
     return true;
   };
