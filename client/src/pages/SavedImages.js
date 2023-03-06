@@ -43,6 +43,7 @@ const SavedImages = () => {
                     <h1>Viewing saved images!</h1>
                 </Container>
             </Jumbotron>
+             <Container>
                 <h2>
                     {userData.savedImages?.length
                         ? `Viewing ${userData.savedImages.length} saved ${userData.savedImages.length === 1 ? "image" : "images"
@@ -50,9 +51,10 @@ const SavedImages = () => {
                         : "You have no saved images!"}
                 </h2>
                 <div className="masonry-with-columns">
-                    {userData.savedImages?.map((photo) => (
-                        <div className='card'key={photo.imageId}>
-                            <img
+                    {userData.savedImages?.map((photo) =>  {
+            return (
+            <Card className='card'key={photo.imageId}>
+                               <Card.Img
                                 key={`${photo.imageId}`}
                                 src={`https://live.staticflickr.com/${photo.server}/${photo.imageId}_${photo.secret}.jpg`}
                                 alt={`${photo.title}`}
@@ -72,9 +74,11 @@ const SavedImages = () => {
                                 )
 
                             }
-                        </div>
-                    ))}
-                </div>
+                        </Card>
+            );
+})}
+    </div>
+                </Container>
             </>
     );
 };

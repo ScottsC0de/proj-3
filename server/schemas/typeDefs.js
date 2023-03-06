@@ -18,19 +18,20 @@ const typeDefs = gql`
     title: String
     src: String
   }
-  input ImageInput {
-    imageId: String
-    title: String
-    caption: String
-    src: String
-  }
+  # input ImageInput {
+  #   imageId: String
+  #   title: String
+  #   caption: String
+  #   src: String
+  # }
+
   type Query {
     me: User
   }
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    saveImage(input: ImageInput): User
+    saveImage(imageId: String!, title: String!, src: String, caption: String!): User
     removeImage(imageId: ID!): User
   }
 `;
