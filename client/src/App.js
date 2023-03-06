@@ -6,7 +6,7 @@ import AppNavbar from './components/navbar';
 // import Gallery from './components/Gallery';
 
 import SearchedImages from "./pages/SearchedImages";
-// import SavedImages from "./pages/SavedImages";
+import SavedImages from "./pages/SavedImages";
 
 // import Cloud from './components/cloud';
 
@@ -50,7 +50,7 @@ function App() {
     {/* <Gallery /> */}
     <Routes>
             <Route path="/" element={<SearchedImages />} />
-            {/* <Route path="/saved" element={<SavedImages />} /> */}
+            <Route path="/saved" element={<SavedImages />} />
             <Route
               path="*"
               element={<h1 className="display-2">Wrong page!</h1>}
