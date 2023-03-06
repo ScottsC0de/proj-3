@@ -68,20 +68,25 @@ const SearchedImages = () => {
 
   // create function to handle saving a image to our database
   const handleSaveImage = async (imageId) => {
+
+    console.log(searchedImages)
+    console.log(imageId)
     // find the image in `searchedImages` state by the matching id
     const imageToSave = searchedImages.find((photo) => photo.imageId === imageId);
-
+    console.log(imageToSave)
     // get token
     const token = Auth.loggedIn() ? Auth.getToken() : null;
 
     if (!token) {
       return false;
     }
-
+    console.log("VALIDATED LOGGING IN")
     try {
       const { data } = await saveImage({
-        variables: { input: { ...imageToSave } },
+        variables: { ...imageToSave },
       });
+      console.log("REICEIVED DATA")
+      console.log(data)
       console.log(savedImageIds);
       // if image successfully saves to user's account, save image id to state
       setSavedImageIds([...savedImageIds, imageToSave.imageId]);
@@ -116,7 +121,7 @@ const SearchedImages = () => {
           </Form>
         </Container>
       </Jumbotron>
-
+      <Container>
         <h2>
           {searchedImages.length
             ? `Viewing ${searchedImages.length} results for ${prevSearchInput}:`
@@ -124,9 +129,10 @@ const SearchedImages = () => {
         </h2>
 
         <div className="masonry-with-columns">
-          {searchedImages.map((photo) => (
-            <div className='card' key={photo.imageId}>
-            <img
+          {searchedImages.map((photo) => {
+            return (
+            <Card className='card' key={photo.imageId}>
+              <Card.Img
               key={`${photo.imageId}`}
               src={`https://live.staticflickr.com/${photo.server}/${photo.imageId}_${photo.secret}.jpg`}
               alt={`${photo.title}`}
@@ -144,9 +150,11 @@ const SearchedImages = () => {
                     : 'Save this Image!'}
                 </Button>
               )}
-                </div>
-          ))}
+               </Card>
+            );
+})}
         </div>
+        </Container>
     </>
   );
 };
