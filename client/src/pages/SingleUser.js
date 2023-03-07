@@ -1,4 +1,10 @@
 import React from 'react';
+import {
+  Jumbotron,
+  Container,
+  Card,
+  Button,
+} from "react-bootstrap";
 
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
@@ -7,6 +13,7 @@ import CommentsList from '../components/CommentList';
 import CommentForm from '../components/CommentForm';
 
 import { QUERY_SINGLE_USER } from '../utils/queries';
+
 
 const SingleUser = () => {
   const { userId } = useParams();
@@ -21,6 +28,41 @@ const SingleUser = () => {
     return <div>Loading...</div>;
   }
   return (
+    <>
+    <Jumbotron fluid className="text-light bg-dark">
+      <Container>
+        <h1>Viewing {user.username} saved images</h1>
+      </Container>
+    </Jumbotron>
+    <Container>
+    <h2>
+          {user.savedImages?.length
+            ? `Viewing ${user.savedImages.length} saved ${
+              user.savedImages.length === 1 ? "image" : "images"
+              }:`
+            : "You have no saved images"}
+        </h2>
+        <div className="masonry-with-columns">
+          {user.savedImages?.map((photo) => {
+            return (
+              <Card className="card" key={photo.imageId}>
+                <Card.Img
+                  key={`${photo.imageId}`}
+                  src={`${photo.src}`}
+                  alt={`${photo.title}`}
+                  thumbnailheight={350}
+                  thumbnailwidth={350}
+                  caption={`${photo.title}`}
+                />
+                {
+                  <h4>{photo.title}</h4>
+                }
+              </Card>
+            );
+          })}
+        </div>
+    </Container>
+    <Container>
     <div>
       <h2 className="card-header">
         {user.username}'s friends have comment on their image...
@@ -32,6 +74,8 @@ const SingleUser = () => {
         <CommentForm userId={user._id} />
       </div>
     </div>
+    </Container>
+    </>
   );
 };
 

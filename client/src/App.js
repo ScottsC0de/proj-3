@@ -7,6 +7,7 @@ import AppNavbar from './components/navbar';
 import SavedImages from "./pages/SavedImages";
 import SearchedImages from "./pages/SearchedImages";
 import AllSavedImages from "./pages/AllSavedImages";
+import UserList from "./pages/UserList";
 import SingleUser from "./pages/SingleUser";
 // import Cloud from './components/cloud';
 
@@ -52,6 +53,7 @@ function App() {
             <Route path="/" element={<SearchedImages />} />
             <Route path="/saved" element={<SavedImages />} />
             <Route path="/allsaved" element={<AllSavedImages />} />
+            <Route path="/allusers" element={<UserList />} />
             <Route path="/users/:userId" element={<SingleUser />} />
             <Route
               path="*"
