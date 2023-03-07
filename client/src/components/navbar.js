@@ -34,6 +34,10 @@ const AppNavbar = () => {
                   <Nav.Link as={Link} to='/saved'>
                     See Your Inspiration
                   </Nav.Link> : ''}
+                  {location.pathname !== "/allsaved" ?
+                  <Nav.Link as={Link} to='/allsaved'>
+                    See Everyone's Inspiration
+                  </Nav.Link> : ''}
                   <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
                 </>
               ) : (

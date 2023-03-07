@@ -11,6 +11,16 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
+    users: async () => {
+      return User.find();
+    },
+
+    user: async (parent, { userId }) => {
+      return User.findOne({ _id: userId });
+    },
+    // user: async (parent, { userId }) => {
+    //   return User.findOne({ _id: userId }).populate("savedImages");
+    // },
   },
 
   Mutation: {

@@ -16,3 +16,19 @@ export const GET_ME = gql`
     }
   }
 `;
+
+export const QUERY_IMAGES = gql`
+  query allUsers {
+    users {
+    _id
+    email
+    imageCount
+    savedImages {
+      caption
+      imageId
+      src
+      title
+    }
+  }
+}
+`;
