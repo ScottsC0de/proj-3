@@ -1,16 +1,28 @@
 import React from 'react';
-import { Card } from "react-bootstrap";
+// import {
+//   Jumbotron,
+//   Container,
+//   CardColumimageIdArrns,
+//   Card,
+//   Button,
+// } from "react-bootstrap";
 import { Link } from 'react-router-dom';
 
-const ImageList = ({ users, title }) => {
+
+const ImageList = ({ users, title  }) => {
+ 
+
     if (!users.length) {
     return <h3>No Saved images Yet</h3>;
   }
 
   return (
+  
     <div>
-      <h3 className="text-primary">{title}</h3>
-      <div className="flex-row justify-space-between my-4">
+    <h3 className="text-primary">{title}</h3>
+    <div className="flex-row justify-space-between my-4">
+      
+      
         {users &&
           users.map((user) => (
             <div key={users._id} className="col-12 col-xl-6">
@@ -30,10 +42,11 @@ const ImageList = ({ users, title }) => {
                   View and share comments on {user.username}'s images.
                 </Link>
               </div>
-            </div>
+              </div>
           ))}
       </div>
-    </div>
+      </div>
+ 
   );
 };
 export default ImageList;

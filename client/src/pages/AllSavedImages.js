@@ -4,6 +4,7 @@ import { Container, Button, Card } from "react-bootstrap";
 import { useQuery } from "@apollo/react-hooks";
 // import { QUERY_USERS} from "../utils/queries";
 import { QUERY_ALL_IMAGES } from "../utils/queries";
+import UserNav from "../components/ImageAndUserNav"; 
 
 // use this page to display query/resolver of ALL saved images on DB
 
@@ -23,6 +24,8 @@ const AllSavedImages = () => {
     console.log('images: ', images);
 
     return (
+      <>
+      <UserNav />
         <main>
           <div className="flex-row justify-center">
             <div className="col-12 col-md-10 my-3">
@@ -72,6 +75,7 @@ const AllSavedImages = () => {
             </div>
           </div>
         </main>
+        </>
       );
     };
     
