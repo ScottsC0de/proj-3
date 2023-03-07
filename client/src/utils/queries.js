@@ -20,33 +20,49 @@ export const GET_ME = gql`
 export const QUERY_USERS = gql`
   query allUsers {
     users {
-    _id
-    email
-    imageCount
-    savedImages {
-      caption
-      imageId
-      src
-      title
+      _id
+      username
+      email
+      imageCount
+      savedImages {
+        caption
+        imageId
+        src
+        title
+      }
     }
   }
-}
+`;
+
+
+export const QUERY_ALL_IMAGES = gql`
+  query allUsers {
+    users
+{      savedImages {
+        caption
+        imageId
+        src
+        title
+      }
+    }}
+
 `;
 
 export const QUERY_SINGLE_USER = gql`
   query singleUser($userId: ID!) {
     user(userId: $userId) {
       _id
-    email
-    imageCount
-    savedImages {
-      caption
-      imageId
-      src
-      title
+      username
+      email
+      imageCount
+      savedImages {
+        caption
+        imageId
+        src
+        title
+      }
     }
   }
-}
 `;
 
 // export const QUERY_COMMENTS = gql`
@@ -75,5 +91,3 @@ export const QUERY_SINGLE_USER = gql`
 //     }
 //   }
 // `;
-
-
