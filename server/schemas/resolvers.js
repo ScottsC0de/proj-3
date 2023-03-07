@@ -19,6 +19,9 @@ const resolvers = {
       return User.findOne({ _id: userId });
     },
     // user: async (parent, { userId }) => {
+    //   return User.findOne({ _id: userId }).populate("comments");
+    // },
+    // user: async (parent, { userId }) => {
     //   return User.findOne({ _id: userId }).populate("savedImages");
     // },
   },
@@ -76,25 +79,25 @@ console.log(token)
     },
   },
   
-  // addComment: async (parent, { userId, comment }) => {
-  //   return User.findOneAndUpdate(
-  //     { _id: userId },
-  //     {
-  //       $addToSet: { comments: comment },
-  //     },
-  //     {
-  //       new: true,
-  //       runValidators: true,
-  //     }
-  //   );
-  // },
-  // removeComment: async (parent, { userId, comment }) => {
-  //   return User.findOneAndUpdate(
-  //     { _id: userId },
-  //     { $pull: { comments: comment } },
-  //     { new: true }
-  //   );
-  // },
+  addComment: async (parent, { userId, comment }) => {
+    return User.findOneAndUpdate(
+      { _id: userId },
+      {
+        $addToSet: { comments: comment },
+      },
+      {
+        new: true,
+        runValidators: true,
+      }
+    );
+  },
+  removeComment: async (parent, { userId, comment }) => {
+    return User.findOneAndUpdate(
+      { _id: userId },
+      { $pull: { comments: comment } },
+      { new: true }
+    );
+  },
 };
 
 module.exports = resolvers;

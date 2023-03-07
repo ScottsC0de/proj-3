@@ -37,8 +37,8 @@ export const QUERY_USERS = gql`
 
 export const QUERY_ALL_IMAGES = gql`
   query allUsers {
-    users
-{      savedImages {
+    users{      
+    savedImages {
         caption
         imageId
         src
@@ -55,6 +55,7 @@ export const QUERY_SINGLE_USER = gql`
       username
       email
       imageCount
+      comments
       savedImages {
         caption
         imageId
