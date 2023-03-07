@@ -56,7 +56,7 @@ const SavedImages = () => {
             <Card className='card'key={photo.imageSrc}>
                                <Card.Img
                                 key={`${photo.imageId}`}
-                                src={`https://live.staticflickr.com/${photo.server}/${photo.imageId}_${photo.secret}.jpg`}
+                                src={`${photo.src}`}
                                 alt={`${photo.title}`}
                                 thumbnailheight={350}
                                 thumbnailwidth={350}

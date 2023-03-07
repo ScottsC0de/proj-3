@@ -71,11 +71,11 @@ const SearchedImages = () => {
   // create function to handle saving a image to our database
   const handleSaveImage = async (imageSrc) => {
 
-    console.log(searchedImages)
-    console.log(imageSrc)
+    console.log('handleSaveImage: ', searchedImages)
+    console.log('imageSrc: ', imageSrc)
     // find the image in `searchedImages` state by the matching id
     const imageToSave = searchedImages.find((photo) => photo.imageSrc === imageSrc);
-    console.log(imageToSave)
+    console.log('imageToSave: ', imageToSave)
     // get token
     const token = Auth.loggedIn() ? Auth.getToken() : null;
 
@@ -91,7 +91,7 @@ const SearchedImages = () => {
       console.log(data)
       console.log(savedImageSrcs);
       // if image successfully saves to user's account, save image id to state
-      setSavedImageSrcs([...savedImageSrcs, imageToSave.imageSrc]);
+      setSavedImageSrcs([...savedImageSrcs, imageToSave]);
     } catch (err) {
       console.error(err);
     }
