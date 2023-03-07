@@ -43,8 +43,8 @@ export const ADD_USER = gql`
 `;
 
 export const SAVE_IMAGE = gql`
- mutation SaveImage($imageId: String!, $title: String!, $src: String, $caption: String!) {
-  saveImage( imageId: $imageId, title: $title, src: $src, caption: $caption) {
+ mutation SaveImage($imageId: String!, $title: String!, $imageSrc: String, $caption: String!) {
+  saveImage( imageId: $imageId, title: $title, src: $imageSrc, caption: $caption) {
     _id
     username
     email
