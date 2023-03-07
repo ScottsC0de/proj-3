@@ -1,6 +1,6 @@
 # The Vibes
 
-The Vibes is a simple photo sharing app built with React and the Cloudinary and Flickr API's. Users can upload photos to their account, view photos uploaded by other users, and comment on photos.
+The Vibes is a simple photo sharing app built with React and the Cloudinary and Flickr API's. Users can upload photos to their account, view photos uploaded by other users, and delete their saved photos.
 
 ## [Table Of Contents](#Table-Of-Contents)
 - [The Vibes](#the-vibes)
