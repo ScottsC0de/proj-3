@@ -16,18 +16,18 @@ const ImageList = ({ users, title }) => {
             <div key={users._id} className="col-12 col-xl-6">
               <div className="card mb-3">
                 <h4 className="card-header bg-dark text-light p-2 m-0">
-                  {user.email} <br />
+                  {user.username} <br />
                   <span className="text-white" style={{ fontSize: '1rem' }}>
                     currently has {user.savedImages ? user.savedImages.length : 0}{' '}
-                    images saved
-                    {user.savedImages && user.savedImages.length === 1 ? '' : 's'}
+                    image 
+                    {user.savedImages && user.savedImages.length === 1 ? '' : 's'} saved
                   </span>
                 </h4>
                 <Link
                   className="btn btn-block btn-squared btn-light text-dark"
                   to={`/users/${user._id}`}
                 >
-                  View and share comments on their images.
+                  View and share comments on {user.username}'s images.
                 </Link>
               </div>
             </div>

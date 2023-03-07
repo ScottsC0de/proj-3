@@ -23,7 +23,7 @@ const SingleUser = () => {
   return (
     <div>
       <h2 className="card-header">
-        {user.email}'s friends have comment on their image...
+        {user.username}'s friends have comment on their image...
       </h2>
 
       {user.comments?.length > 0 && <CommentsList comments={user.comments} />}
