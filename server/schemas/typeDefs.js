@@ -32,7 +32,7 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
     saveImage(imageId: String!, title: String!, src: String, caption: String!): User
-    removeImage(imageId: ID!): User
+    removeImage(imageId: String!): User
   }
 `;
 

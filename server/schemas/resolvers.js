@@ -51,12 +51,13 @@ console.log(token)
       }
       throw new AuthenticationError('You need to be logged in!');
     },
-    removeImage: async (parent, { imageSrc }, context) => {
+    removeImage: async (parent, { imageId }, context) => {
       console.log("REMOVING IMAGE")
+      // console.log(args);
       if (context.user) {
         const updatedUser = await User.findByIdAndUpdate(
           { _id: context.user._id },
-          { $pull: { savedImages: { imageSrc }}},
+          { $pull: { savedImages: { imageId }}},
           { new: true }
         );
         return updatedUser;
