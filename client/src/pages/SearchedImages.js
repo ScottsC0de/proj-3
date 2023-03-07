@@ -91,7 +91,7 @@ const SearchedImages = () => {
       console.log(data)
       console.log(savedImageSrcs);
       // if image successfully saves to user's account, save image id to state
-      setSavedImageSrcs([...savedImageSrcs, imageToSave]);
+      setSavedImageSrcs([...savedImageSrcs, imageToSave.imageSrc]);
     } catch (err) {
       console.error(err);
     }

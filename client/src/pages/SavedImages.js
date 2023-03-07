@@ -13,7 +13,7 @@ const SavedImages = () => {
 
 
     // create function that accepts the image's mongo _id value as param and deletes the image from the database
-    const handleDeleteImage = async (imageSrc) => {
+    const handleDeleteImage = async (imageId) => {
         const token = Auth.loggedIn() ? Auth.getToken() : null;
 
         if (!token) {
@@ -22,10 +22,10 @@ const SavedImages = () => {
 
         try {
             const { data } = await removeImage({
-                variables: { imageSrc },
+                variables: { imageId },
             });
             // upon success, remove image's id from localStorage
-            removeImageSrc(imageSrc);
+            removeImageSrc(imageId);
         } catch (err) {
             console.error(err);
         }
@@ -53,7 +53,7 @@ const SavedImages = () => {
                 <div className="masonry-with-columns">
                     {userData.savedImages?.map((photo) =>  {
             return (
-            <Card className='card'key={photo.imageSrc}>
+            <Card className='card'key={photo.imageId}>
                                <Card.Img
                                 key={`${photo.imageId}`}
                                 src={`${photo.src}`}

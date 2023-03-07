@@ -60,7 +60,7 @@ export const SAVE_IMAGE = gql`
 `;
 
 export const REMOVE_IMAGE = gql`
-  mutation removeImage($imageId: ID!) {
+  mutation removeImage($imageId: String!) {
     removeImage(imageId: $imageId) {
       _id
       username
