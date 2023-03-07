@@ -34,7 +34,7 @@ const resolvers = {
       }
 
       const token = signToken(user);
-
+console.log(token)
       return { token, user };
     },
     saveImage: async (parent, args, context) => {
@@ -46,7 +46,7 @@ const resolvers = {
           { $push:{savedImages: { ...args}}},
           { new: true} 
         );
-        console.log(updatedUser);
+        // console.log(updatedUser);
         return updatedUser;
       }
       throw new AuthenticationError('You need to be logged in!');
