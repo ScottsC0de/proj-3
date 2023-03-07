@@ -37,13 +37,13 @@ const resolvers = {
 
       return { token, user };
     },
-    saveImage: async (parent, { savedImages  }, context) => {
-      console.log("SAVING IMAGE")
+    saveImage: async (parent, args, context) => {
+      console.log(args)
       if (context.user) {
         console.log("SAVING AN IMAGE")
         const updatedUser = await User.findByIdAndUpdate(
           { _id: context.user._id },
-          { $push: { ...savedImages}},
+          { $push:{savedImages: { ...args}}},
           { new: true} 
         );
         console.log(updatedUser);
