@@ -75,4 +75,14 @@ export const REMOVE_IMAGE = gql`
   }
 `;
 
+export const ADD_COMMENT = gql`
+  mutation addComment($userId: ID!, $comment: String!) {
+    addComment(userId: $userId, comment: $comment) {
+      _id
+      name
+      comments
+    }
+  }
+`;
+
 

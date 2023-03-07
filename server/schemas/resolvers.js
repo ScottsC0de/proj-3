@@ -11,6 +11,16 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
+    users: async () => {
+      return User.find();
+    },
+
+    user: async (parent, { userId }) => {
+      return User.findOne({ _id: userId });
+    },
+    // user: async (parent, { userId }) => {
+    //   return User.findOne({ _id: userId }).populate("savedImages");
+    // },
   },
 
   Mutation: {
@@ -65,6 +75,26 @@ console.log(token)
       throw new AuthenticationError('You need to be logged in!');
     },
   },
+  
+  // addComment: async (parent, { userId, comment }) => {
+  //   return User.findOneAndUpdate(
+  //     { _id: userId },
+  //     {
+  //       $addToSet: { comments: comment },
+  //     },
+  //     {
+  //       new: true,
+  //       runValidators: true,
+  //     }
+  //   );
+  // },
+  // removeComment: async (parent, { userId, comment }) => {
+  //   return User.findOneAndUpdate(
+  //     { _id: userId },
+  //     { $pull: { comments: comment } },
+  //     { new: true }
+  //   );
+  // },
 };
 
 module.exports = resolvers;
