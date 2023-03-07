@@ -36,6 +36,8 @@ const typeDefs = gql`
     addUser(username: String!, email: String!, password: String!): Auth
     saveImage(imageId: String!, title: String!, src: String, caption: String!): User
     removeImage(imageId: String!): User
+    # addComment(userId: ID!, comment: String!): User
+    # removeComment(userId: ID!, comment: String!): User
   }
 `;
 

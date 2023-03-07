@@ -23,6 +23,13 @@ const userSchema = new Schema(
     },
   // set savedImages to be an array of data that adheres to the imageSchema
   savedImages: [imageSchema],
+   // set comments to be an array of data 
+  //  comments: [
+  //   {
+  //     type: Schema.Types.ObjectId,
+  //     ref: 'Photo',
+  //   },
+  // ],
   },
   // set this to use virtual below
   {

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card } from "react-bootstrap";
+import { Link } from 'react-router-dom';
 
 const ImageList = ({ users, title }) => {
     if (!users.length) {
@@ -22,6 +23,12 @@ const ImageList = ({ users, title }) => {
                     {user.savedImages && user.savedImages.length === 1 ? '' : 's'}
                   </span>
                 </h4>
+                <Link
+                  className="btn btn-block btn-squared btn-light text-dark"
+                  to={`/users/${user._id}`}
+                >
+                  View and share comments on their images.
+                </Link>
               </div>
             </div>
           ))}

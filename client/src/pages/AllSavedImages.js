@@ -2,13 +2,13 @@ import React from 'react';
 import ImageList from '../components/ImageList';
 import { Container,  Card } from "react-bootstrap";
 import { useQuery } from "@apollo/react-hooks";
-import { QUERY_IMAGES} from "../utils/queries";
+import { QUERY_USERS} from "../utils/queries";
 
 // use this page to display query/resolver of ALL saved images on DB
 
 const AllSavedImages = () => {
 
-    const { loading, data } = useQuery(QUERY_IMAGES);
+    const { loading, data } = useQuery(QUERY_USERS);
     const users = data?.users || [];
 
     return (
