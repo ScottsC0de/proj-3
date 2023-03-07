@@ -7,7 +7,7 @@ import AppNavbar from './components/navbar';
 import SavedImages from "./pages/SavedImages";
 import SearchedImages from "./pages/SearchedImages";
 import AllSavedImages from "./pages/AllSavedImages";
-
+import SingleUser from "./pages/SingleUser";
 // import Cloud from './components/cloud';
 
 // import { CloudinaryContext, Transformation, Image } from 'cloudinary-react';
@@ -52,6 +52,7 @@ function App() {
             <Route path="/" element={<SearchedImages />} />
             <Route path="/saved" element={<SavedImages />} />
             <Route path="/allsaved" element={<AllSavedImages />} />
+            <Route path="/users/:userId" element={<SingleUser />} />
             <Route
               path="*"
               element={<h1 className="display-2">Wrong page!</h1>}
