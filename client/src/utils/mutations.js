@@ -85,4 +85,18 @@ export const ADD_COMMENT = gql`
   }
 `;
 
+export const LIKE_IMAGE = gql`
+mutation LikeImage($imageId: ID!) {
+  likeImage(imageId: $imageId) {
+    _id
+    title
+    src
+    likes {
+      username
+    }
+  }
+}
+`;
+
+
 
