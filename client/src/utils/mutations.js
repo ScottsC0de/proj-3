@@ -76,13 +76,12 @@ export const REMOVE_IMAGE = gql`
 `;
 
 export const ADD_COMMENT = gql`
-  mutation addComment($userId: ID!, $comment: String!) {
-    addComment(userId: $userId, comment: $comment) {
+  mutation addComment($commentText: String!, $username: String!) {
+    addComment(commentText: $commentText, username: $username) {
       _id
+      commentText
       username
-      comments
+      createdAt
     }
   }
 `;
-
-

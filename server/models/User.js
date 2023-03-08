@@ -3,6 +3,8 @@ const bcrypt = require('bcrypt');
 
 // import schema from Image.js
 const imageSchema = require('./Photo');
+// const commentSchema = require('./Comment');
+
 
 const userSchema = new Schema(
   {
@@ -27,9 +29,9 @@ const userSchema = new Schema(
    comments: [
     {
       type: Schema.Types.ObjectId,
-      ref: 'Comment',
-    },
-  ],
+      ref: "Comment"
+    }
+   ],
   },
   // set this to use virtual below
   {

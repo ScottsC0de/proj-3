@@ -24,6 +24,12 @@ export const QUERY_USERS = gql`
       username
       email
       imageCount
+      comments {
+        _id
+        commentText
+        username
+        createdAt
+      }
       savedImages {
         caption
         imageId
@@ -34,18 +40,17 @@ export const QUERY_USERS = gql`
   }
 `;
 
-
 export const QUERY_ALL_IMAGES = gql`
   query allUsers {
-    users{      
-    savedImages {
+    users {
+      savedImages {
         caption
         imageId
         src
         title
       }
-    }}
-
+    }
+  }
 `;
 
 export const QUERY_SINGLE_USER = gql`
@@ -55,7 +60,12 @@ export const QUERY_SINGLE_USER = gql`
       username
       email
       imageCount
-      comments
+      comments {
+        _id
+        commentText
+        username
+        createdAt
+      }
       savedImages {
         caption
         imageId
@@ -66,29 +76,24 @@ export const QUERY_SINGLE_USER = gql`
   }
 `;
 
-// export const QUERY_COMMENTS = gql`
-//   query getComments {
-//     comments {
-//       _id
-//       commentText
-//       commentAuthor
-//       createdAt
-//     }
-//   }
-// `;
+export const QUERY_COMMENTS = gql`
+  query getComments {
+    comments {
+      _id
+      commentText
+      username
+      createdAt
+    }
+  }
+`;
 
-// export const QUERY_SINGLE_COMMENT = gql`
-//   query getSingleComment($imageId: ID!) {
-//     thought(imageId: $imageId) {
-//       _id
-//       commentText
-//       commentAuthor
-//       createdAt
-//       comments {
-//         _id
-//         commentText
-//         createdAt
-//       }
-//     }
-//   }
-// `;
+export const QUERY_SINGLE_COMMENT = gql`
+  query getSingleComment($commentId: ID!) {
+    comment(commentId: $commentId) {
+      _id
+      commentText
+      username
+      createdAt
+    }
+  }
+`;

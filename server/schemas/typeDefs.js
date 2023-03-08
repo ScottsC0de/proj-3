@@ -11,10 +11,9 @@ const typeDefs = gql`
   }
   type Comment {
     _id: ID
-    commentText: String
-    commentAuthor: String
+    commentText: String!
+    username: String!
     createdAt: String
-    comments: [Comment]!
   }
   type Auth {
     token: ID!
@@ -40,8 +39,8 @@ const typeDefs = gql`
     addUser(username: String!, email: String!, password: String!): Auth
     saveImage(imageId: String!, title: String!, src: String, caption: String!): User
     removeImage(imageId: String!): User
-    addComment(userId: ID!, comment: String!): User
-    removeComment(userId: ID!, comment: String!): User
+    addComment(commentText: String!, username: String!): Comment
+    removeComment(commentId: ID!): Comment
   }
 `;
 
