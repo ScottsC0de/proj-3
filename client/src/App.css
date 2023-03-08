@@ -79,3 +79,7 @@ nav input {
   max-width: 100%;
   background-color: gray;
 }
+.mx-auto {
+  display: inline-block;
+  margin: 0 auto;
+}
