@@ -3,22 +3,30 @@ import { Link, useLocation, Route } from 'react-router-dom';
 import { Navbar, Nav, Container, Modal, Tab } from 'react-bootstrap';
 import SignUpForm from './SignupForm';
 import LoginForm from './LoginForm';
+import { useParams } from 'react-router-dom';
+import { useQuery } from '@apollo/client';
+import { QUERY_SINGLE_USER } from '../utils/queries';
 
 import Auth from '../utils/auth';
 
 const AppNavbar = () => {
   // set modal display state
   const [showModal, setShowModal] = useState(false);
-  const [searchText, setSearchText] = useState('');
+  const [username, setUsername] = useState('My Images');
   const location = useLocation();
-  const handleSearchSubmit = (searchText) => {
+  const { userId } = useParams();
 
-  }
+  const { loading, data } = useQuery(QUERY_SINGLE_USER, {
+    variables: { userId: userId },
+  });
 
+  const user = data?.user || {};
 
+  
+  // const thisUserName = setUsername({user.username});
   return (
     <>
-      <Navbar bg='dark' variant='dark' expand='lg'>
+      <Navbar bg='dark' variant='dark' expand='lg' >
         <Container fluid>
           <Navbar.Toggle aria-controls='navbar' />
           <Navbar.Collapse id='navbar'>
@@ -32,6 +40,7 @@ const AppNavbar = () => {
                 <>
                 {location.pathname !== "/saved" ?
                   <Nav.Link as={Link} to='/saved'>
+                    {/* {`${thisUserName}'s Images`} */}
                     Your Images
                   </Nav.Link> : ''}
                   {location.pathname !== "/allsaved" ?
