@@ -24,7 +24,7 @@ const AppNavbar = () => {
           <Navbar.Collapse id='navbar'>
             <Nav className='ml-auto'>
             {location.pathname !== "/" ? <Nav.Link as={Link} to='/'>
-              Search for Inspiration</Nav.Link> : ''}
+              Home</Nav.Link> : ''}
 
 
               {/* if user is logged in show saved images and logout */}
