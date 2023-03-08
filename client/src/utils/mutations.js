@@ -16,6 +16,12 @@ export const LOGIN_USER = gql`
         caption
         src
       }
+      comments {
+        _id
+        commentText
+        username
+        createdAt
+      }
       }
     }
   }
@@ -36,6 +42,12 @@ export const ADD_USER = gql`
         title
         caption
         src
+      }
+      comments {
+        _id
+        commentText
+        username
+        createdAt
       }
       }
     }
@@ -76,12 +88,14 @@ export const REMOVE_IMAGE = gql`
 `;
 
 export const ADD_COMMENT = gql`
-  mutation addComment($commentText: String!, $username: String!) {
-    addComment(commentText: $commentText, username: $username) {
+  mutation addComment($userId: ID!, $commentText: String!, $username: String!) {
+    addComment(userId: $userId ,commentText: $commentText, username: $username) {
       _id
-      commentText
-      username
-      createdAt
+      comments {
+        _id
+        commentText
+        createdAt
+      }
     }
   }
 `;

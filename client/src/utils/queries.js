@@ -24,17 +24,17 @@ export const QUERY_USERS = gql`
       username
       email
       imageCount
-      comments {
-        _id
-        commentText
-        username
-        createdAt
-      }
       savedImages {
         caption
         imageId
         src
         title
+      }
+      comments {
+        _id
+        commentText
+        username
+        createdAt
       }
     }
   }
@@ -60,40 +60,39 @@ export const QUERY_SINGLE_USER = gql`
       username
       email
       imageCount
-      comments {
-        _id
-        commentText
-        username
-        createdAt
-      }
       savedImages {
         caption
         imageId
         src
         title
       }
+      comments {
+        _id
+        commentText
+        username
+        createdAt
+      }
     }
   }
 `;
 
-export const QUERY_COMMENTS = gql`
-  query getComments {
-    comments {
-      _id
-      commentText
-      username
-      createdAt
-    }
-  }
-`;
+// export const QUERY_COMMENTS = gql`
+//   query getComments {
+//     comments {
+//       commentText
+//       username
+//       createdAt
+//     }
+//   }
+// `;
 
-export const QUERY_SINGLE_COMMENT = gql`
-  query getSingleComment($commentId: ID!) {
-    comment(commentId: $commentId) {
-      _id
-      commentText
-      username
-      createdAt
-    }
-  }
-`;
+// export const QUERY_SINGLE_COMMENT = gql`
+//   query getSingleComment($commentId: ID!) {
+//     comment(commentId: $commentId) {
+//       _id
+//       commentText
+//       username
+//       createdAt
+//     }
+//   }
+// `;

@@ -1,4 +1,4 @@
-const { User, Comment } = require('../models');
+const { User } = require('../models');
 const { AuthenticationError } = require('apollo-server-express');
 const { signToken } = require('../utils/auth');
 
@@ -6,7 +6,7 @@ const resolvers = {
   Query: {
     me: async (parent, args, context) => {
       if (context.user) {
-        const userData = await User.findOne({ _id: context.user._id }).populate("savedImages").select('-__v -password');
+        const userData = await User.findOne({ _id: context.user._id }).populate("savedImages").populate("comments").select('-__v -password');
         return userData;
       }
       throw new AuthenticationError('You need to be logged in!');
@@ -19,13 +19,13 @@ const resolvers = {
       return User.findOne({ _id: userId });
     },
 
-    comments: async (parent, { username }) => {
-      const params = username ? { username } : {};
-      return Comment.find(params).sort({ createdAt: -1 });
-    },
-    comment: async (parent, { commentId }) => {
-      return Comment.findOne({ _id: commentId });
-    },
+    // comments: async (parent, { username }) => {
+    //   const params = username ? { username } : {};
+    //   return Comment.find(params).sort({ createdAt: -1 });
+    // },
+    // comment: async (parent, { commentId }) => {
+    //   return Comment.findOne({ _id: commentId });
+    // },
   },
 
   Mutation: {
@@ -79,22 +79,24 @@ console.log(token)
       }
       throw new AuthenticationError('You need to be logged in!');
     },
+    addComment: {
+      resolve: async (parent, args, context) => {
+        console.log(args)
+        if (context.user) {
+          console.log("SAVING AN IMAGE")
+          const updatedUser = await User.findByIdAndUpdate(
+            { _id: context.user._id },
+            { $push:{comments: { ...args}}},
+            { new: true}
+          );
+          // console.log(updatedUser);
+          return updatedUser;
+        }
+        throw new AuthenticationError('You need to be logged in!');
+      }
+    },
   },
   
-  addComment: async (parent, args, context) => {
-    console.log(args)
-    // const comment = await Comment.create( ...args );
-    // console.log(comment)
-    if (context.user) {
-      const updatedUser = await User.findByIdAndUpdate(
-        { _id: context.user._id },
-        { $push: { comments: { ...args }}},
-        { new: true }
-      );
-      return updatedUser;
-    }
-    throw new AuthenticationError('You need to be logged in!');
-  },
 };
 
 

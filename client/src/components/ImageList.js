@@ -33,10 +33,15 @@ const ImageList = ({ users, title  }) => {
                     currently has {user.savedImages ? user.savedImages.length : 0}{' '}
                     image 
                     {user.savedImages && user.savedImages.length === 1 ? '' : 's'} saved
+                  </span> <br />
+                  <span className="text-white" style={{ fontSize: '1rem' }}>
+                    currently has {user.comments ? user.comments.length : 0}{' '}
+                    comments on their album page
+                    {user.comments && user.comments.length === 1 ? '' : ''}
                   </span>
                 </h4>
                 <Link
-                  className="btn btn-block btn-squared btn-light text-dark"
+                  className="btn btn-block btn-squared btn-outline-info btn-light text-dark"
                   to={`/users/${user._id}`}
                 >
                   View and share comments on {user.username}'s images.
