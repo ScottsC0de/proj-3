@@ -47,11 +47,11 @@ const AllSavedImages = () => {
       const { data } = await likeImage({
         variables: { ...imageToLike },
       });
-      // console.log("RECEIVED DATA");
+      console.log("RECEIVED DATA");
       // console.log(data);
-      console.log('likeImageIds', likedImageIds);
+      // console.log(savedImageSrcs);
       // if image successfully saves to user's account, save image id to state
-      setLikedImageIds([...likedImageIds, imageToLike.imageId]);
+      // setSavedImageSrcs([...savedImageSrcs, imageToLike.imageSrc]);
     } catch (err) {
       console.error(err);
     }

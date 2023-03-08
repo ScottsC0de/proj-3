@@ -90,16 +90,16 @@ export const ADD_COMMENT = gql`
 export const LIKE_IMAGE = gql`
  mutation likeImage($imageId: String!) {
   likeImage( imageId: $imageId) {
-    _id
-    username
-    email
-    imageCount
-    savedImages {
-      caption
-      imageId
-      src
-      title
-    }
+    # _id
+    # username
+    # email
+    # imageCount
+    # savedImages {
+    #   caption
+    #   imageId
+    #   src
+    #   title
+    # }
     likedImages{
       imageId
     }

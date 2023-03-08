@@ -7,6 +7,6 @@ const likedSchema = new Schema({
     type: String,
     required: true,
   },
-})
+});
 
 module.exports = likedSchema;
