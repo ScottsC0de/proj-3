@@ -6,6 +6,14 @@ export const getSavedImageSrcs = () => {
     return savedImageSrcs;
   };
   
+  export const getLikedImageIds = () => {
+    const likedImageIds = localStorage.getItem('liked_images')
+      ? JSON.parse(localStorage.getItem('liked_images'))
+      : [];
+  
+    return likedImageIds;
+  };
+
   export const saveImageSrcs = (imageSrcArr) => {
     if (imageSrcArr.length) {
       localStorage.setItem('saved_images', JSON.stringify(imageSrcArr));

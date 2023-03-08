@@ -61,6 +61,20 @@ console.log(token)
       }
       throw new AuthenticationError('You need to be logged in!');
     },
+    likeImage: async (parent, args, context) => {
+      console.log(args)
+      if (context.user) {
+        console.log("LIKING AN IMAGE")
+        const updatedUser = await User.findByIdAndUpdate(
+          { _id: context.user._id },
+          { $push:{likedImages: { ...args}}},
+          { new: true} 
+        );
+        // console.log(updatedUser);
+        return updatedUser;
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    },
     removeImage: async (parent, { imageId }, context) => {
       console.log("REMOVING IMAGE")
       // console.log(args);
@@ -68,6 +82,19 @@ console.log(token)
         const updatedUser = await User.findByIdAndUpdate(
           { _id: context.user._id },
           { $pull: { savedImages: { imageId }}},
+          { new: true }
+        );
+        return updatedUser;
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    },
+    unlikeImage: async (parent, { imageId }, context) => {
+      console.log("UNLIKING IMAGE")
+      // console.log(args);
+      if (context.user) {
+        const updatedUser = await User.findByIdAndUpdate(
+          { _id: context.user._id },
+          { $pull: { likedImages: { imageId }}},
           { new: true }
         );
         return updatedUser;

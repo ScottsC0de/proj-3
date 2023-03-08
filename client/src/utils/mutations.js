@@ -59,6 +59,8 @@ export const SAVE_IMAGE = gql`
 }
 `;
 
+
+
 export const REMOVE_IMAGE = gql`
   mutation removeImage($imageId: String!) {
     removeImage(imageId: $imageId) {
@@ -86,17 +88,22 @@ export const ADD_COMMENT = gql`
 `;
 
 export const LIKE_IMAGE = gql`
-mutation LikeImage($imageId: ID!) {
-  likeImage(imageId: $imageId) {
+ mutation likeImage($imageId: String!) {
+  likeImage( imageId: $imageId) {
     _id
-    title
-    src
-    likes {
-      username
+    username
+    email
+    imageCount
+    savedImages {
+      caption
+      imageId
+      src
+      title
+    }
+    likedImages{
+      imageId
     }
   }
 }
 `;
-
-
 
