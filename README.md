@@ -1,6 +1,6 @@
 # The Vibes
 
-The Vibes is a simple photo sharing app built with React and the Cloudinary and Flickr API's. Users can upload photos to their account, view photos uploaded by other users, and delete their saved photos.
+The Vibes is a simple photo sharing app built with React and the Flickr API. Users can view photos, save them to their account after logging in or signing up. They can also delete photos from their account, view photos saved by other users, and like photos saved by other users.
 
 ## [Table Of Contents](#Table-Of-Contents)
 - [The Vibes](#the-vibes)
@@ -19,7 +19,7 @@ The Vibes is a simple photo sharing app built with React and the Cloudinary and 
 This application was created after one of the developers told a story about a fabulous vacation
 that she had taken.  It was to the Hawaiian Islands.  She was fascinated by the beaches in 
 particular. She stated that the Hawaiian Islands are home to some of the most beautiful beaches in the world, with crystal-clear water, soft white sand, and gentle waves. Each island has its own unique beaches, from the popular Waikiki Beach on Oahu to the secluded Lanikai Beach on the island of Kauai.  After the story the group concluded that they would love to see the pictures.  From that conversation, the topic of a final project of our web-development 
-bootcamp came up, and it was unanimous that we should create a photo-sharing app using React and some apis from cloudinary and flickr.  This app allows the user to view photos that inspire, entertain and delight the users imagination!  When the page loads, the user has the option of logging in or signing up if they are new.  Once they login or signup, they can view, search and even upload photos to the application.  Enjoy the journey!
+bootcamp came up, and it was unanimous that we should create a photo-sharing app using React and an api from flickr.  This app allows the user to view photos that inspire, entertain and delight the users imagination!  When the page loads, the user has the option of logging in or signing up if they are new.  Once they login or signup, they can view, search and like photos from other users in the application.  Enjoy the journey!
 
 
 

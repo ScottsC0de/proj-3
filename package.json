@@ -1,6 +1,9 @@
 {
   "name": "proj-3",
   "version": "0.1.0",
+  "engines": {
+    "node": "16.18.0"
+  },
   "private": true,
   "main": "server/server.js",
   "dependencies": {

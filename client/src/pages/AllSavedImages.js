@@ -5,6 +5,7 @@ import { useQuery } from "@apollo/react-hooks";
 // import { QUERY_USERS} from "../utils/queries";
 import { QUERY_ALL_IMAGES } from "../utils/queries";
 import UserNav from "../components/ImageAndUserNav"; 
+import LikeButton from './LikeButton';
 
 // use this page to display query/resolver of ALL saved images on DB
 
@@ -57,15 +58,23 @@ const AllSavedImages = () => {
                           thumbnailwidth={350}
                           caption={`${photo.title}`}
                         />
-                        {
-                  <Button
+                        {}
+
+
+
+                    
+                <LikeButton
                     className="btn-block btn-danger"
+                    //make this button red
+                    // disabled={savedImageIds?.some(
+
                     // onClick={() => handleDeleteImage(photo.imageId)}
                     onClick={() => alert(`Liked ${photo.title}` )}
+                    onclick={() => console.log(`Liked ${photo.title}` )}
                   >
                     Like this Image!
-                  </Button>
-                }
+                  </LikeButton>
+                
                       </Card>
                     );
                   })}
