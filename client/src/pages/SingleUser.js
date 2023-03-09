@@ -65,11 +65,9 @@ const SingleUser = () => {
     <Container>
     <div>
       <h2 className="card-header">
-        {user.username}'s friends have comment on their image...
+        {user.username}'s friends have commented on their image album...
       </h2>
-
       {user.comments?.length > 0 && <CommentsList comments={user.comments} />}
-
       <div className="my-4 p-4" style={{ border: '1px dotted #1a1a1a' }}>
         <CommentForm userId={user._id} />
       </div>

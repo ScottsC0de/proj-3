@@ -7,6 +7,13 @@ const typeDefs = gql`
     email: String!
     imageCount: Int
     savedImages: [Image]
+    comments: [Comment]
+  }
+  type Comment {
+    _id: ID
+    commentText: String!
+    username: String!
+    createdAt: String
   }
   type Auth {
     token: ID!
@@ -18,17 +25,13 @@ const typeDefs = gql`
     title: String
     src: String
   }
-  # input ImageInput {
-  #   imageId: String
-  #   title: String
-  #   caption: String
-  #   src: String
-  # }
 
   type Query {
     me: User
     users: [User]!
     user(userId: ID!): User
+    # comments(username: String): User
+    # comment(commentId: ID!): User
   
   }
   type Mutation {
@@ -36,8 +39,8 @@ const typeDefs = gql`
     addUser(username: String!, email: String!, password: String!): Auth
     saveImage(imageId: String!, title: String!, src: String, caption: String!): User
     removeImage(imageId: String!): User
-    # addComment(userId: ID!, comment: String!): User
-    # removeComment(userId: ID!, comment: String!): User
+    addComment(userId: ID!, commentText: String!, username: String!): User
+    removeComment(userId: ID!): User
   }
 `;
 
