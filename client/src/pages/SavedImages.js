@@ -5,7 +5,9 @@ import {
   CardColumimageIdArrns,
   Card,
   Button,
+  Badge,
 } from "react-bootstrap";
+// import Badge from "react-bootstrap/Badge"
 import { useMutation, useQuery } from "@apollo/react-hooks";
 import { GET_ME } from "../utils/queries";
 import { REMOVE_IMAGE } from "../utils/mutations";
@@ -43,19 +45,25 @@ const SavedImages = () => {
 
   return (
     <>
-      <Jumbotron fluid className="text-light bg-dark">
+      <Jumbotron fluid className="text-light bg-primary">
         <Container>
-          <h1>Viewing saved images</h1>
+          <h1>Your saved images <Badge className="bg-warning text-dark"> {userData.savedImages.length} </Badge> </h1>
         </Container>
       </Jumbotron>
       <Container>
-        <h2>
+        {/* <h2>
           {userData.savedImages?.length
             ? `Viewing ${userData.savedImages.length} saved ${
                 userData.savedImages.length === 1 ? "image" : "images"
               }:`
             : "You have no saved images"}
-        </h2>
+        </h2> */}
+        {/* <h2>
+          {userData.savedImages?.length
+            ? `Your Saved Images`
+            : "You have no saved images"}
+            <Badge bg="secondary"> {userData.savedImages.length} </Badge>
+        </h2> */}
         <div className="masonry-with-columns">
           {userData.savedImages?.map((photo) => {
             return (
