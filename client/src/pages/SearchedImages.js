@@ -37,9 +37,8 @@ const SearchedImages = () => {
   // create method to search for images and set state on form submit
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    const apiKey = process.env.FLICKR_API_KEY;
-    // const apiKey = "8cc95ac0f29514284d94232a32a7c4c3"
-
+    const apiKey = process.env.REACT_APP_API_KEY;
+    const background = document.getElementById('background')
     if (!searchInput) {
       return false;
     }
@@ -69,6 +68,7 @@ const SearchedImages = () => {
       setSearchedImages(imageData);
       setPrevSearchInput(searchInput);
       setSearchInput("");
+      background.className="d-none";
     } catch (err) {
       console.error(err);
     }
@@ -130,7 +130,9 @@ const SearchedImages = () => {
           </Form>
         </Container>
       </Jumbotron>
-      <Container>
+      <div className="background" id="background">      </div>
+
+      <Container className="white">
         <h2>
           {searchedImages.length
             ? `Viewing ${searchedImages.length} results for ${prevSearchInput}:`
