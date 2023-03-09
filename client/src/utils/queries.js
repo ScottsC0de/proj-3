@@ -34,18 +34,17 @@ export const QUERY_USERS = gql`
   }
 `;
 
-
 export const QUERY_ALL_IMAGES = gql`
   query allUsers {
-    users
-{      savedImages {
+    users {
+      savedImages {
         caption
         imageId
         src
         title
       }
-    }}
-
+    }
+  }
 `;
 
 export const QUERY_SINGLE_USER = gql`
@@ -60,6 +59,12 @@ export const QUERY_SINGLE_USER = gql`
         imageId
         src
         title
+      }
+      comments {
+        _id
+        commentText
+        username
+        createdAt
       }
     }
   }
@@ -88,24 +93,19 @@ export const QUERY_LIKES = gql`
 //     comments {
 //       _id
 //       commentText
-//       commentAuthor
+//       username
 //       createdAt
 //     }
 //   }
 // `;
 
 // export const QUERY_SINGLE_COMMENT = gql`
-//   query getSingleComment($imageId: ID!) {
-//     thought(imageId: $imageId) {
+//   query getSingleComment($commentId: ID!) {
+//     comment(commentId: $commentId) {
 //       _id
 //       commentText
-//       commentAuthor
+//       username
 //       createdAt
-//       comments {
-//         _id
-//         commentText
-//         createdAt
-//       }
 //     }
 //   }
 // `;

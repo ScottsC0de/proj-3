@@ -7,7 +7,8 @@ import { ADD_COMMENT } from '../utils/mutations';
 import Auth from '../utils/auth';
 
 const CommentForm = ({ userId }) => {
-  const [comment, setComment] = useState('');
+  const [commentText, setCommentText] = useState('');
+  const [characterCount, setCharacterCount] = useState(0);
 
   const [addComment, { error }] = useMutation(ADD_COMMENT);
 
@@ -16,12 +17,22 @@ const CommentForm = ({ userId }) => {
 
     try {
       const data = await addComment({
-        variables: { userId, comment },
+        variables: { userId, commentText, username: Auth.getProfile().data.username, },
       });
 
-      setComment('');
+      setCommentText('');
     } catch (err) {
       console.error(err);
+    }
+  };
+
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    if (name === 'commentText' && value.length <= 280) {
+      setCommentText(value);
+      setCharacterCount(value.length);
     }
   };
 
@@ -30,33 +41,40 @@ const CommentForm = ({ userId }) => {
       <h4>Add some more comments below.</h4>
 
       {Auth.loggedIn() ? (
-        <form
-          className="flex-row justify-center justify-space-between-md align-center"
-          onSubmit={handleFormSubmit}
-        >
-          <div className="col-12 col-lg-9">
-            <input
-              placeholder="Add some comments..."
-              value={comment}
-              className="form-input w-100"
-              onChange={(event) => setComment(event.target.value)}
-            />
-          </div>
-
-          <div className="col-12 col-lg-3">
-            <button className="btn btn-info btn-block py-3" type="submit">
-              Add Comment
-            </button>
-          </div>
-          {error && (
-            <div className="col-12 my-3 bg-danger text-white p-3">
-              {error.message}
+        <>
+          <p
+            className={`m-0 ${
+              characterCount === 280 || error ? 'text-danger' : ''
+            }`}
+          >
+            Character Count: {characterCount}/280
+            {error && <span className="ml-2">{error.message}</span>}
+          </p>
+          <form
+            className="flex-row justify-center justify-space-between-md align-center"
+            onSubmit={handleFormSubmit}
+          >
+            <div className="col-12 col-lg-9">
+              <textarea
+                name="commentText"
+                placeholder="Add your comment..."
+                value={commentText}
+                className="form-input w-100"
+                style={{ lineHeight: '1.5', resize: 'vertical' }}
+                onChange={handleChange}
+              ></textarea>
             </div>
-          )}
-        </form>
+
+            <div className="col-12 col-lg-3">
+              <button className="btn btn-primary btn-block py-3" type="submit">
+                Add Comment
+              </button>
+            </div>
+          </form>
+        </>
       ) : (
         <p>
-          You need to be logged in to add comments. Please{' '}
+          You need to be logged in to share your thoughts. Please{' '}
           <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
         </p>
       )}
@@ -65,3 +83,4 @@ const CommentForm = ({ userId }) => {
 };
 
 export default CommentForm;
+

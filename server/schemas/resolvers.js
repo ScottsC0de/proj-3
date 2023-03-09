@@ -6,7 +6,7 @@ const resolvers = {
   Query: {
     me: async (parent, args, context) => {
       if (context.user) {
-        const userData = await User.findOne({ _id: context.user._id }).populate("savedImages").select('-__v -password');
+        const userData = await User.findOne({ _id: context.user._id }).populate("savedImages").populate("comments").select('-__v -password');
         return userData;
       }
       throw new AuthenticationError('You need to be logged in!');
@@ -18,8 +18,13 @@ const resolvers = {
     user: async (parent, { userId }) => {
       return User.findOne({ _id: userId });
     },
-    // user: async (parent, { userId }) => {
-    //   return User.findOne({ _id: userId }).populate("savedImages");
+
+    // comments: async (parent, { username }) => {
+    //   const params = username ? { username } : {};
+    //   return Comment.find(params).sort({ createdAt: -1 });
+    // },
+    // comment: async (parent, { commentId }) => {
+    //   return Comment.findOne({ _id: commentId });
     // },
   },
 
@@ -100,28 +105,25 @@ console.log(token)
         return updatedUser;
       }
       throw new AuthenticationError('You need to be logged in!');
+    addComment: {
+      resolve: async (parent, args, context) => {
+        console.log(args)
+        if (context.user) {
+          console.log("SAVING AN IMAGE")
+          const updatedUser = await User.findByIdAndUpdate(
+            { _id: context.user._id },
+            { $push:{comments: { ...args}}},
+            { new: true}
+          );
+          // console.log(updatedUser);
+          return updatedUser;
+        }
+        throw new AuthenticationError('You need to be logged in!');
+      }
     },
   },
   
-  // addComment: async (parent, { userId, comment }) => {
-  //   return User.findOneAndUpdate(
-  //     { _id: userId },
-  //     {
-  //       $addToSet: { comments: comment },
-  //     },
-  //     {
-  //       new: true,
-  //       runValidators: true,
-  //     }
-  //   );
-  // },
-  // removeComment: async (parent, { userId, comment }) => {
-  //   return User.findOneAndUpdate(
-  //     { _id: userId },
-  //     { $pull: { comments: comment } },
-  //     { new: true }
-  //   );
-  // },
 };
+
 
 module.exports = resolvers;

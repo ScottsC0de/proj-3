@@ -9,6 +9,14 @@ import Auth from "../utils/auth";
 import { likedImageIds, getLikedImageIds } from "../utils/localStorage";
 import { useMutation } from "@apollo/react-hooks";
 import { LIKE_IMAGE } from "../utils/mutations";
+import React from "react";
+import ImageList from "../components/ImageList";
+import { Container, Badge, Jumbotron, Card } from "react-bootstrap";
+import { useQuery } from "@apollo/react-hooks";
+// import { QUERY_USERS} from "../utils/queries";
+import { QUERY_ALL_IMAGES } from "../utils/queries";
+import UserNav from "../components/ImageAndUserNav";
+import LikeButton from "./LikeButton";
 
 // create state to hold saved imageId values
 // use this page to display query/resolver of ALL saved images on DB
@@ -56,6 +64,7 @@ const AllSavedImages = () => {
       console.error(err);
     }
   };
+
 
   return (
     <>
@@ -127,6 +136,68 @@ const AllSavedImages = () => {
           </div>
         </div>
       </main>
+      {/* <div className="flex-row justify-center">
+          <div className="col-12 col-md-10 my-3"> */}
+      {loading ? (
+        <div>Loading...</div>
+      ) : (
+        // <ImageList
+        //   users={users}
+        //   title="See what inspires other users..."
+        // />
+        <>
+          <Jumbotron fluid className="text-light bg-primary">
+            <Container>
+              <h1>
+                Everyone's saved images{" "}
+                <Badge className="bg-warning text-dark">
+                  {" "}
+                  {images.length}{" "}
+                </Badge>{" "}
+              </h1>
+            </Container>
+          </Jumbotron>
+
+          <Container>
+            {/* <h2>
+                  {images.length
+                    ? `Viewing ${images.length} results:`
+                    : ""}
+                </h2> */}
+            <div className="masonry-with-columns">
+              {images.map((photo) => {
+                return (
+                  <Card className="card" key={photo.imageId}>
+                    <Card.Img
+                      key={`${photo.imageId}`}
+                      src={`${photo.src}`}
+                      alt={`${photo.title}`}
+                      thumbnailheight={350}
+                      thumbnailwidth={350}
+                      caption={`${photo.title}`}
+                    />
+                    {}
+
+                    <LikeButton
+                      className="btn-block btn-danger"
+                      //make this button red
+                      // disabled={savedImageIds?.some(
+
+                      // onClick={() => handleDeleteImage(photo.imageId)}
+                      onClick={() => alert(`Liked ${photo.title}`)}
+                      onclick={() => console.log(`Liked ${photo.title}`)}
+                    >
+                      Like this Image!
+                    </LikeButton>
+                  </Card>
+                );
+              })}
+            </div>
+          </Container>
+        </>
+      )}
+      {/* </div>
+        </div> */}
     </>
   );
 };

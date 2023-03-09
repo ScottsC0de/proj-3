@@ -2,8 +2,7 @@ import React from 'react'
 import {Jumbotron, Container, Form, Row, Col, Button } from 'react-bootstrap'
 
 const searchForm = () => {
-return 
-(
+return (
   <div>
 <Jumbotron fluid className='text-light bg-dark'>
 <Container>

@@ -45,7 +45,7 @@ function App() {
     <Router>
       <>
     <AppNavbar />
-    <PicturePost />
+    {/* <PicturePost /> */}
     {/* <FlickrPhotos /> */}
     {/* <Cloud /> */}
     {/* <Gallery /> */}
