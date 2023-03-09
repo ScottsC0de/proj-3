@@ -38,7 +38,7 @@ const SearchedImages = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     const apiKey = process.env.REACT_APP_API_KEY;
-    const background = document.getElementById('background')
+    // const background = document.getElementById('background')
     if (!searchInput) {
       return false;
     }
@@ -68,7 +68,7 @@ const SearchedImages = () => {
       setSearchedImages(imageData);
       setPrevSearchInput(searchInput);
       setSearchInput("");
-      background.className="d-none";
+      // background.className="d-none";
     } catch (err) {
       console.error(err);
     }
@@ -130,7 +130,7 @@ const SearchedImages = () => {
           </Form>
         </Container>
       </Jumbotron>
-      <div className="background" id="background">      </div>
+      {/* <div className="background" id="background">      </div> */}
 
       <Container className="white">
         <h2>

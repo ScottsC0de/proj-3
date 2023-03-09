@@ -3,6 +3,7 @@ import {
   Jumbotron,
   Container,
   Card,
+  Badge,
   Button,
 } from "react-bootstrap";
 
@@ -29,11 +30,13 @@ const SingleUser = () => {
   }
   return (
     <>
-    <Jumbotron fluid className="text-light bg-dark">
-      <Container>
-        <h1>Viewing {user.username} saved images</h1>
-      </Container>
-    </Jumbotron>
+    <Jumbotron fluid className="text-light bg-primary">
+        <Container>
+          <h1>Viewing {user.username}'s saved images <Badge className="bg-warning text-dark"> {user.savedImages.length} </Badge> </h1>
+        </Container>
+      </Jumbotron>
+
+
     <Container>
     <h2>
           {user.savedImages?.length
