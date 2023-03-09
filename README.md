@@ -10,9 +10,9 @@ Inspirations is a simple photo sharing app built with React and the Flickr API. 
   - [Installation](#installation)
   - [User Information](#user-information)
   - [Features](#features)
+  - [ScreenShots](#screenshots)
   - [License](#license)
   - [Credits](#credits)
-  - [Developer Branch Instructions](#developer-branch-instructions)
 
 ## Description
 
@@ -90,6 +90,53 @@ Overall, photo sharing apps are a versatile tool that can be used for a variety 
 **See Everyone's Inspiration**
 * User can see other users photos and like and comment on them.
 
+## ScreenShots
+
+
+
+**The Homepage**
+![Alt text](client/public/ScreenShot1.png)
+
+
+
+
+**The user can view their saved images**
+![Alt text](client/public/ScreenShot2.png)
+
+
+
+
+**Everyone's saved images view**
+![Alt text](client/public/ScreenShot3.png)
+
+
+
+
+**Viewing another users images**
+![Alt text](client/public/ScreenShot4.png)
+
+
+
+
+**The user may comment on other user's images**
+![Alt text](client/public/ScreenShot5.png)
+
+
+
+
+**The user has the ability to delete their own images**
+![Alt text](client/public/ScreenShot6.png)
+
+
+
+
+**The user can like other user's images!**
+![Alt text](client/public/ScreenShot7.png)
+
+
+
+
+
 ## License
 
 MIT License
@@ -124,17 +171,3 @@ This app was authored by:
 4. [Scott George](https://github.com/ScottsC0de)
 5. [Dave Proto](https://github.com/Dpro03)
 
-## Developer Branch Instructions
-```js
-1. (on your local main branch) git pull origin main
-2. git checkout -b feature/myfeature
-3. git status
-4. git add . 
-5. git commit -m "add commit comment"
-6. git pull origin main (if your branch is stale/ other people’s changes already merged)
-7. git push origin feature/myfeature
-8. once pushed, open a pull request of your branch, a teammate needs to approve your PR and merge into main
-9. git checkout main
-10. git pull origin main
-11. delete your branch to keep things clean: git branch -d feature/myfeature
-```
