@@ -69,7 +69,25 @@ export const QUERY_SINGLE_USER = gql`
     }
   }
 `;
-
+export const QUERY_LIKES = gql`
+ query likedImages($imageId: String!) {
+  likedImages( imageId: $imageId) {
+    _id
+    # username
+    # email
+    # imageCount
+    # savedImages {
+    #   caption
+    #   imageId
+    #   src
+    #   title
+    # }
+    likedImages{
+      imageId
+    }
+  }
+}
+`;
 // export const QUERY_COMMENTS = gql`
 //   query getComments {
 //     comments {

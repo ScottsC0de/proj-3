@@ -1,18 +1,18 @@
-# The Vibes
+# Inspirations
 
-The Vibes is a simple photo sharing app built with React and the Flickr API. Users can view photos, save them to their account after logging in or signing up. They can also delete photos from their account, view photos saved by other users, and like photos saved by other users.
+Inspirations is a simple photo sharing app built with React and the Flickr API. Users can view photos, save them to their account after logging in or signing up. They can also delete photos from their account, view photos saved by other users, and like photos saved by other users.
 
 ## [Table Of Contents](#Table-Of-Contents)
-- [The Vibes](#the-vibes)
+- [Inspirations](#inspirations)
   - [Table Of Contents](#table-of-contents)
   - [Description](#description)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
-  - [Usage](#usage)
+  - [User Information](#user-information)
   - [Features](#features)
+  - [ScreenShots](#screenshots)
   - [License](#license)
   - [Credits](#credits)
-  - [Developer Branch Instructions](#developer-branch-instructions)
 
 ## Description
 
@@ -20,8 +20,6 @@ This application was created after one of the developers told a story about a fa
 that she had taken.  It was to the Hawaiian Islands.  She was fascinated by the beaches in 
 particular. She stated that the Hawaiian Islands are home to some of the most beautiful beaches in the world, with crystal-clear water, soft white sand, and gentle waves. Each island has its own unique beaches, from the popular Waikiki Beach on Oahu to the secluded Lanikai Beach on the island of Kauai.  After the story the group concluded that they would love to see the pictures.  From that conversation, the topic of a final project of our web-development 
 bootcamp came up, and it was unanimous that we should create a photo-sharing app using React and an api from flickr.  This app allows the user to view photos that inspire, entertain and delight the users imagination!  When the page loads, the user has the option of logging in or signing up if they are new.  Once they login or signup, they can view, search and like photos from other users in the application.  Enjoy the journey!
-
-
 
 ## Prerequisites
 
@@ -42,12 +40,26 @@ In the terminal and in the project directory, run:
 
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
+You do need a Flickr API key to use this application.
+
+To get a Flickr API key, follow these steps:
+
+1. Go to the Flickr App Garden and sign in with your Flickr account.
+2. Click the "Apply for Non-Commercial Key" button.
+3. Fill out the form with the required information, including the name and description of your app, your  name, and your email address.
+4. Read and agree to the Flickr API Terms of Service.
+5. Click the "Submit" button.
+   
+Once your application is approved, you will receive a unique API key and secret that you can use to access Flickr's API.
+
+To use the Flickr API in this app, you will need to authenticate this app using the API key and secret. You can find more information about the Flickr API, including authentication and usage guidelines, in the Flickr API documentation.
+
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-## Usage
+## User Information
 
-This photo sharing app is a software application that allows users to upload, store, and share their photos with others. Here are some common ways people use photo sharing apps:
+This photo sharing app is a software application that allows users to search, like, comment and share their photos with others. Here are some common ways people use photo sharing apps:
 
 1. Social networking: People use photo sharing apps to share photos with their friends and family on social media platforms like Facebook, Instagram, and Snapchat. They can post photos of their everyday life, special events, and travels, and engage with others through comments and likes.
 
@@ -63,17 +75,67 @@ Overall, photo sharing apps are a versatile tool that can be used for a variety 
 
 ## Features
 
-**Upload Images:**
-* User is able to upload an image (JPEG/PNG) from their desktop via the app.
-* App supports drag-and-drop function to upload.
-* Whenever an upload fails/succeeds, the UI indicates it to the user clearly.
-
 **Search/View Images:**
 * User can enter a description in the search bar to search for specific types of photos.
-* This is just filler because I don't know what else to write....
+
+**Save Images:**
+* User can save any of the images they searched for.
+
+**See Your Inspiration**
+* User can view saved images.
 
 **Delete Images:**
-* User can delete the images that they previously uploaded by hitting the delete button
+* User can delete the images that they previously saved by hitting the delete button.
+
+**See Everyone's Inspiration**
+* User can see other users photos and like and comment on them.
+
+## ScreenShots
+
+
+
+**The Homepage**
+![Alt text](client/public/ScreenShot1.png)
+
+
+
+
+**The user can view their saved images**
+![Alt text](client/public/ScreenShot2.png)
+
+
+
+
+**Everyone's saved images view**
+![Alt text](client/public/ScreenShot3.png)
+
+
+
+
+**Viewing another users images**
+![Alt text](client/public/ScreenShot4.png)
+
+
+
+
+**The user may comment on other user's images**
+![Alt text](client/public/ScreenShot5.png)
+
+
+
+
+**The user has the ability to delete their own images**
+![Alt text](client/public/ScreenShot6.png)
+
+
+
+
+**The user can like other user's images!**
+![Alt text](client/public/ScreenShot7.png)
+
+
+
+
 
 ## License
 
@@ -109,17 +171,3 @@ This app was authored by:
 4. [Scott George](https://github.com/ScottsC0de)
 5. [Dave Proto](https://github.com/Dpro03)
 
-## Developer Branch Instructions
-```js
-1. (on your local main branch) git pull origin main
-2. git checkout -b feature/myfeature
-3. git status
-4. git add . 
-5. git commit -m "add commit comment"
-6. git pull origin main (if your branch is stale/ other people’s changes already merged)
-7. git push origin feature/myfeature
-8. once pushed, open a pull request of your branch, a teammate needs to approve your PR and merge into main
-9. git checkout main
-10. git pull origin main
-11. delete your branch to keep things clean: git branch -d feature/myfeature
-```
