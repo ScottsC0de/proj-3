@@ -19,8 +19,11 @@ html, body {
 
 .masonry-with-columns {
   margin: auto;
-  columns: 5 300px;
+  columns: 5 250px;
   column-gap: 1rem;
+}
+.masonry-with-columns div {
+  margin-bottom: 1rem;
 }
 .masonry-with-columns img {
   width: 400px;
@@ -78,4 +81,8 @@ nav input {
 .card img {
   max-width: 100%;
   background-color: gray;
+}
+.mx-auto {
+  display: inline-block;
+  margin: 0 auto;
 }
