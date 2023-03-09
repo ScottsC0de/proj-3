@@ -37,7 +37,7 @@ const SearchedImages = () => {
   // create method to search for images and set state on form submit
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    const apiKey = process.env.REACT_APP_API_KEY || process.env.FLICKR_API_KEY;
+    const apiKey = process.env.FLICKR_API_KEY;
 
     if (!searchInput) {
       return false;
