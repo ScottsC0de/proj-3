@@ -30,12 +30,6 @@ export const QUERY_USERS = gql`
         src
         title
       }
-      comments {
-        _id
-        commentText
-        username
-        createdAt
-      }
     }
   }
 `;
