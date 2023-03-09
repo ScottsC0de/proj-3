@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import ImageList from "../components/ImageList";
-import { Container, Button, Card } from "react-bootstrap";
 import { useQuery } from "@apollo/react-hooks";
 // import { QUERY_USERS} from "../utils/queries";
 import { QUERY_ALL_IMAGES } from "../utils/queries";
@@ -9,14 +8,9 @@ import Auth from "../utils/auth";
 import { likedImageIds, getLikedImageIds } from "../utils/localStorage";
 import { useMutation } from "@apollo/react-hooks";
 import { LIKE_IMAGE } from "../utils/mutations";
-import React from "react";
-import ImageList from "../components/ImageList";
-import { Container, Badge, Jumbotron, Card } from "react-bootstrap";
-import { useQuery } from "@apollo/react-hooks";
+import { Container, Badge, Jumbotron, Button, Card } from "react-bootstrap";
 // import { QUERY_USERS} from "../utils/queries";
-import { QUERY_ALL_IMAGES } from "../utils/queries";
 import UserNav from "../components/ImageAndUserNav";
-import LikeButton from "./LikeButton";
 
 // create state to hold saved imageId values
 // use this page to display query/resolver of ALL saved images on DB

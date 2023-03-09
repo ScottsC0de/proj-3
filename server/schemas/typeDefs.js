@@ -7,6 +7,7 @@ const typeDefs = gql`
     email: String!
     imageCount: Int
     savedImages: [Image]
+    likedImages: [Image]
     comments: [Comment]
   }
   type Comment {

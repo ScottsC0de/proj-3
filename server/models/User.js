@@ -4,7 +4,6 @@ const bcrypt = require("bcrypt");
 // import schema from Image.js
 const imageSchema = require("./Photo");
 const likedSchema = require("./Likes");
-const imageSchema = require('./Photo');
 const commentSchema = require('./Comment');
 
 

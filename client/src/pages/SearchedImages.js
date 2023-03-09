@@ -38,6 +38,7 @@ const SearchedImages = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     const apiKey = process.env.FLICKR_API_KEY;
+    // const apiKey = "8cc95ac0f29514284d94232a32a7c4c3"
 
     if (!searchInput) {
       return false;
