@@ -19,7 +19,7 @@ const resolvers = {
     },
 
     user: async (parent, { userId }) => {
-      return User.findOne({ _id: userId });
+      return User.findOne({ _id: userId }).populate("savedImages").populate("comments");
     },
 
     // comments: async (parent, { username }) => {
@@ -86,7 +86,7 @@ const resolvers = {
       resolve: async (parent, args, context) => {
         console.log(args);
         if (context.user) {
-          console.log("SAVING AN IMAGE");
+          console.log("SAVING A COMMENT")
           const updatedUser = await User.findByIdAndUpdate(
             { _id: context.user._id },
             { $push: { comments: { ...args } } },
