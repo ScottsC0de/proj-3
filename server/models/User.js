@@ -28,10 +28,8 @@ const userSchema = new Schema(
     savedImages: [imageSchema],
     // set likedImages to be an array of data that adheres to the likedSchema
     likedImages: [likedSchema],
-  // set savedImages to be an array of data that adheres to the imageSchema
-  savedImages: [imageSchema],
   //  set comments to be an array of data 
-   comments: [commentSchema],
+    comments: [commentSchema],
   },
   // set this to use virtual below
   {

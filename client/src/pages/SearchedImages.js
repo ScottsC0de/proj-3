@@ -132,7 +132,7 @@ const SearchedImages = () => {
       </Jumbotron>
       {/* <div className="background" id="background">      </div> */}
 
-      <Container className="white">
+      <Container>
         <h2>
           {searchedImages.length
             ? `Viewing ${searchedImages.length} results for ${prevSearchInput}:`
