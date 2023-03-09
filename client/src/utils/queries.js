@@ -30,6 +30,9 @@ export const QUERY_USERS = gql`
         src
         title
       }
+      comments {
+        _id
+      }
     }
   }
 `;
@@ -71,12 +74,24 @@ export const QUERY_SINGLE_USER = gql`
 `;
 
 // export const QUERY_COMMENTS = gql`
-//   query getComments {
-//     comments {
+//   query userComments($userId: ID!) {
+//     user(userId: $userId) {
 //       _id
-//       commentText
 //       username
-//       createdAt
+//       email
+//       imageCount
+//       savedImages {
+//         caption
+//         imageId
+//         src
+//         title
+//       }
+//       comments {
+//         _id
+//         commentText
+//         username
+//         createdAt
+//       }
 //     }
 //   }
 // `;
