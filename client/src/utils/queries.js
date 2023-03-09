@@ -79,6 +79,7 @@ export const QUERY_SINGLE_USER = gql`
 // export const QUERY_COMMENTS = gql`
 //   query getComments {
 //     comments {
+//       _id
 //       commentText
 //       username
 //       createdAt

@@ -30,8 +30,8 @@ const typeDefs = gql`
     me: User
     users: [User]!
     user(userId: ID!): User
-    # comments(username: String): [Comment]
-    # comment(commentId: ID!): Comment
+    # comments(username: String): User
+    # comment(commentId: ID!): User
   
   }
   type Mutation {

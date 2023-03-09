@@ -99,3 +99,16 @@ export const ADD_COMMENT = gql`
     }
   }
 `;
+
+// export const REMOVE_COMMENT = gql`
+//   mutation removeComment($userId: ID!) {
+//     removeComment(userId: $userId) {
+//       _id
+//       comments {
+//         _id
+//         commentText
+//         createdAt
+//       }
+//     }
+//   }
+// `;
