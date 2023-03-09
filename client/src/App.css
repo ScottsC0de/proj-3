@@ -86,3 +86,19 @@ nav input {
   display: inline-block;
   margin: 0 auto;
 }
+.background {
+  background-image: url(./background.jpg);
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 30%;
+}
+.white {
+  background-color: white;
+  margin: 2rem auto;
+  opacity: 100%;
+}
+.d-none {
+  display: none;
+}

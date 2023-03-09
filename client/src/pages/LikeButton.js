@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import props from "./LikePhoto";
+// import LikeImages from "../utils/likes";
 
 function LikeButton() {
   const [liked, setLiked] = useState(false);
