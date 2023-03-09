@@ -65,71 +65,7 @@ const AllSavedImages = () => {
       {/* <Container>
       <UserNav />
 </Container> */}
-      <main>
-        <div className="flex-row justify-center">
-          <div className="col-12 col-md-10 my-3">
-            {loading ? (
-              <div>Loading...</div>
-            ) : (
-              // <ImageList
-              //   users={users}
-              //   title="See what inspires other users..."
-              // />
-              <Container>
-                <h2>
-                  {images.length ? `Viewing ${images.length} results:` : ""}
-                </h2>
 
-                <div className="masonry-with-columns">
-                  {images.map((photo) => {
-                    return (
-                      <Card className="card" key={photo.imageId}>
-                        <Card.Img
-                          key={`${photo.imageId}`}
-                          src={`${photo.src}`}
-                          alt={`${photo.title}`}
-                          thumbnailheight={350}
-                          thumbnailwidth={350}
-                          caption={`${photo.title}`}
-                        />
-                        {}
-
-                        {/* <LikeButton
-                    className="btn-block btn-danger"
-                    //make this button red
-                    // disabled={savedImageIds?.some(
-
-                    // onClick={() => handleDeleteImage(photo.imageId)}
-                    onClick={() => alert(`Liked ${photo.title}` )}
-                    onclick={() => console.log(`Liked ${photo.title}` )}
-                  >
-                    Like this Image!
-                  </LikeButton> */}
-
-                        {Auth.loggedIn() && (
-                          <Button
-                            disabled={images?.some(
-                              (likedImageId) => likedImageId === photo.imageId
-                            )}
-                            className="btn-block btn-info"
-                            onClick={() => handleLikedImage(photo.imageId)}
-                          >
-                            {images?.some(
-                              (likedImageId) => likedImageId === photo.imageId
-                            )
-                              ? "Love-it!!:}"
-                              : "Like this Image!"}
-                          </Button>
-                        )}
-                      </Card>
-                    );
-                  })}
-                </div>
-              </Container>
-            )}
-          </div>
-        </div>
-      </main>
       {/* <div className="flex-row justify-center">
           <div className="col-12 col-md-10 my-3"> */}
       {loading ? (

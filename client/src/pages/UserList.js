@@ -14,6 +14,7 @@ const AllSavedUsers = () => {
       <>
       {/* <UserNav /> */}
         <main>
+          <Container>
           <div className="flex-row justify-center">
             <div className="col-12 col-md-10 my-3">
               {loading ? (
@@ -26,6 +27,7 @@ const AllSavedUsers = () => {
               )}
             </div>
           </div>
+          </Container>
         </main>
         </>
       );
