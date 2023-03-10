@@ -13,6 +13,7 @@ Inspirations is a simple photo sharing app built with React and the Flickr API. 
   - [ScreenShots](#screenshots)
   - [License](#license)
   - [Credits](#credits)
+  - [Links](#links)
 
 ## Description
 
@@ -171,3 +172,8 @@ This app was authored by:
 4. [Scott George](https://github.com/ScottsC0de)
 5. [Dave Proto](https://github.com/Dpro03)
 
+## Links
+
+GitHub  Repository:  https://github.com/ScottsC0de/proj-3
+
+Website link:  https://af-ls-mj-sg-dp-proj-3.herokuapp.com/
